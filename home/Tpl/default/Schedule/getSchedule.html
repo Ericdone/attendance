@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>GetSchedule</title>       
+    <style type="text/css">
+        body {
+            line-height: 5mm;
+            font-size: 12px;
+            text-align: center;
+        }
+        table {
+            border:1px solid #4876FF;   
+            border-collapse:collapse; 
+        }
+        tr {
+            border:1px solid #4876FF;   
+            border-collapse:collapse; 
+        }
+        td {
+            border:1px solid #4876FF;   
+            border-collapse:collapse;
+            width: 100px;
+            height: 30px; 
+        }
+    </style> 
+</head>
+<body bgcolor="#ccd9e7">
+    <table border="0" cellpadding="3" cellspacing="0">
+        <tr>
+            <td>时间</td>
+            <td>星期一</td>
+            <td>星期二</td>
+            <td>星期三</td>
+            <td>星期四</td>
+            <td>星期五</td>
+            <td>星期六</td>
+            <td>星期日</td>
+        </tr>
+        <tr>
+        <foreach name="info" item="vo">
+            <if condition="$vo.turn eq 'yes'">
+                </tr>
+                <td>第<{$key/7+1}>节</td>
+            </if>
+            <if condition="$vo.has eq 'yes'">
+                <td>
+                    <{$vo.subjectname}>
+                    <br />
+                    <{$vo.startweek}>-<{$vo.endweek}>周
+                    <if condition="$vo.singledouble eq 1">
+                        (单双周)
+                    </if>
+                </td>
+            <else />
+                <td></td>
+            </if>
+        </foreach>     
+    </table>
+</body>
+</html>

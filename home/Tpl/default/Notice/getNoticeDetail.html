@@ -1,0 +1,38 @@
+<style type="text/css">
+<!--
+body {
+    line-height: 5mm;
+    font-size: 12px;
+}
+.center {
+    text-align: center;
+    font-size: 12pt;
+    color: red;
+    font-weight: 700;
+}
+-->
+</style>
+<body bgcolor="#ccd9e8">
+    <div id="" class="center">
+        <{$info[0]['noticename']}>
+    </div>
+    <br>
+    <font color="green">发送人</font>：<{$info[0]['teachername']}><font color="grey">(<{$info[0]['teacherid']}>)</font><br>
+    <font color="green">接收人</font>：<{$info[0]['studentname']}><font color="grey">(<{$info[0]['studentid']}>)</font><br>
+    <font color="green">发送时间</font>：<{$info[0]['noticetime']|date="Y年m月d日",###}><br>
+    <font color="green">阅读状态</font>：
+    <if condition="$info[0]['noticestatus'] eq 0">
+        <font color="red">未读</font>
+    <else />
+        <font color="blue">已读</font>
+    </if>
+    <br>
+    <font color="green">是否群发</font>：
+    <if condition="$info[0]['noticeisall'] eq 0">
+        <font color="red">群发</font>
+    <else />
+        <font color="blue">私信</font>
+    </if>
+    <br>
+    <font color="green">通知内容</font>：<{$info[0]['noticecontent']}>
+</body>
