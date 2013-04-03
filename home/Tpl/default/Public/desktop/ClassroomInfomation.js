@@ -198,11 +198,11 @@ Ext.define('subjectModel', {
 		type: 'string'
 	}]
 });
-var subjectStore = Ext.create('Ext.data.Store', {
+var subjectStoreMore = Ext.create('Ext.data.Store', {
 	model: 'subjectModel',
 	proxy: {
 		type: 'ajax',
-		url: AppUrl + '/Lib/getsubject',
+		url: AppUrl + '/Lib/getSubjectMore',
 		reader: {
 			type: 'json',
 			root: 'data'
@@ -726,13 +726,13 @@ Ext.define('MyDesktop.ClassroomInfomation', {
 		    	}, {
 		    		border: false,
 		    		padding: 5,
-		    		items:[{
-		    			// 科目列表
+		    		items: [{
+			    		// 科目列表
 		            	id: 'seat6',
 		                xtype: 'combobox',
 		                labelWidth: 40,
 		                fieldLabel: '科 目',
-		                store: subjectStore,
+		                store: subjectStoreMore,
 		                width: 160,
 		                queryMode: 'remote',
 		                displayField: 'name',
@@ -748,6 +748,30 @@ Ext.define('MyDesktop.ClassroomInfomation', {
 		                		showNext(7, 6);
 		                	}
 		                }
+		    		// border: false,
+		    		// padding: 5,
+		    		// items:[{
+		    		// 	// 科目列表
+		      //       	id: 'seat6',
+		      //           xtype: 'combobox',
+		      //           labelWidth: 40,
+		      //           fieldLabel: '科 目',
+		      //           store: subjectStore,
+		      //           width: 160,
+		      //           queryMode: 'remote',
+		      //           displayField: 'schedulename',
+		      //           valueField: 'subjectid',
+		      //           emptyText: '选择所查询科目',
+		      //           triggerAction: 'all',
+		      //           listeners: {
+		      //           	select: function(c, r, i) {
+		      //           		// 多级联动选择了科目后触发的事件
+		      //           		seatQueryObj = splitString(seatQueryObj, ',', 5);
+		      //           		seatQueryObj = seatQueryObj + ',' + r[0].data.subjectid;
+		      //           		Ext.getCmp('seatSearch').disable();
+		      //           		showNext(7, 6);
+		      //           	}
+		      //           }
 		            }, {
 		            	// 上课日期列表，指星期几
 		            	id: 'seat7',

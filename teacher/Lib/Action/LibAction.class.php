@@ -100,7 +100,28 @@ class LibAction extends CommonAction {
 
         $scheduleModel = M('Schedule');
         // $info = $scheduleModel->field('`subjectid`')->group('`subjectid`')->where('`year`=' . $queryArr[1] . ' and `term`=' . $queryArr[2] . ' and `classid`=' . $queryArr[5])->select();
-        $info = $scheduleModel->query("SELECT `schedule`.`subjectid` AS `subjectid`, `subject`.`name` AS `name` FROM `schedule` LEFT JOIN `subject` ON `subject`.`id`=`schedule`.`subjectid` WHERE `schedule`.`year`=$queryArr[1] and `schedule`.`term`=$queryArr[2] and `schedule`.`classid`=$queryArr[5] group by `schedule`.`subjectid`");
+        // $info = $scheduleModel->query("SELECT `schedule`.`subjectid`, `subject`.`name` AS `subjectname` FROM `schedule` LEFT JOIN `subject` ON `subject`.`id`=`schedule`.`subjectid` WHERE `schedule`.`year`=$queryArr[1] and `schedule`.`term`=$queryArr[2] and `schedule`.`classid`=$queryArr[5] group by `schedule`.`subjectid`");
+        $info = $scheduleModel->query("SELECT `schedule`.`subjectid`, `subject`.`name` AS `schedulename` FROM `schedule` LEFT JOIN `subject` ON `subject`.`id`=`schedule`.`subjectid` WHERE `schedule`.`year`=$queryArr[1] and `schedule`.`term`=$queryArr[2] and `schedule`.`classid`=$queryArr[5] group by `schedule`.`subjectid`");
+        // var_dump($info);
+        if($info) {
+            echo '{"success":true,data:' . json_encode($info) . '}';
+        }
+    }
+
+
+    /*
+     * 获取级联查询中的科目信息
+     *
+     * */
+    public function getSubjectMore() {
+        // 获取学年、学期、年级、系别、班级信息
+        $query = $_GET['query'];
+        $queryArr = split(',', $query);
+
+        $scheduleModel = M('Schedule');
+        // $info = $scheduleModel->field('`subjectid`')->group('`subjectid`')->where('`year`=' . $queryArr[1] . ' and `term`=' . $queryArr[2] . ' and `classid`=' . $queryArr[5])->select();
+        // $info = $scheduleModel->query("SELECT `schedule`.`subjectid`, `subject`.`name` AS `subjectname` FROM `schedule` LEFT JOIN `subject` ON `subject`.`id`=`schedule`.`subjectid` WHERE `schedule`.`year`=$queryArr[1] and `schedule`.`term`=$queryArr[2] and `schedule`.`classid`=$queryArr[5] group by `schedule`.`subjectid`");
+        $info = $scheduleModel->query("SELECT `schedule`.`subjectid`, `subject`.`name` AS `name` FROM `schedule` LEFT JOIN `subject` ON `subject`.`id`=`schedule`.`subjectid` WHERE `schedule`.`year`=$queryArr[1] and `schedule`.`term`=$queryArr[2] and `schedule`.`classid`=$queryArr[5] group by `schedule`.`subjectid`");
         // var_dump($info);
         if($info) {
             echo '{"success":true,data:' . json_encode($info) . '}';
