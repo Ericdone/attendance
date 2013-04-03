@@ -52,19 +52,22 @@ Ext.define('MyDesktop.TeacherInfomation', {
     			name: 'name',
     			type: 'string'
     		}, {
+                        name: 'number',
+                        type: 'string'
+                }, {
     			name: 'sex',
     			type: 'int'
     		}, {
-    			name: 'number',
-    			type: 'string'
-    		}, {
-    			name: 'departid',
+    			name: 'classid',
     			type: 'int'
     		}, {
-    			name: 'departname',
+    			name: 'classname',
     			type: 'string'
     		}, {
-    			name: 'position',
+    			name: 'familyid',
+    			type: 'int'
+    		}, {
+    			name: 'familyname',
     			type: 'string'
     		}, {
     			name: 'phone',
@@ -76,10 +79,10 @@ Ext.define('MyDesktop.TeacherInfomation', {
     			name: 'image',
     			type: 'int'
     		}, {
-    			name: 'nation',
+    			name: 'address',
     			type: 'string'
     		}, {
-    			name: 'polite',
+    			name: 'guardername',
     			type: 'string'
     		}]
     	});
@@ -151,16 +154,16 @@ Ext.define('MyDesktop.TeacherInfomation', {
 		            	inputValue: '1'
 		            }]
 		        }, {
-		            fieldLabel: '职工号',
+		            fieldLabel: '学号',
 		            name: 'number',
 		            readOnly: true,
 		            readOnlyCls: ''
 		        }, {
-		            fieldLabel: '部门',
-		            name: 'departname'
+		            fieldLabel: '系别', 
+		            name: 'familyname'
 		        }, {
-		            fieldLabel: '职称',
-		            name: 'position'
+		            fieldLabel: '班级',
+		            name: 'classname'
 		        }, {
 		            fieldLabel: '邮箱',
 		            name: 'email'
@@ -168,11 +171,11 @@ Ext.define('MyDesktop.TeacherInfomation', {
 		            fieldLabel: '电话',
 		            name: 'phone'
 		        }, {
-		            fieldLabel: '民族',
-		            name: 'nation'
+		            fieldLabel: '住址',
+		            name: 'address'
 		        }, {
-		            fieldLabel: '政治面貌',
-		            name: 'polite'
+		            fieldLabel: '监护人',
+		            name: 'guardername'
 		        }]
 		    }, {
 		        xtype:'fieldset',

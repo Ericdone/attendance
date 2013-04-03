@@ -1,28 +1,28 @@
 <?php
 class TeachInfoAction extends CommonAction {
 
-    // 显示对应教师信息
+    // 显示对应学生信息
     function getTeachInfo() {
-        $id = session('teacher');
-        $teacher = M('teacher');
+        $id = session('student');
+        $teacher = M('Student');
         // $info = $teacher->field('`id`, `name`, `sex`, `number`, `departid`, `position`, `phone`, `email`, `image`, `nation`, `polite`')->where('`number`="' . $id . '"')->find();
-        $info = $teacher->query("SELECT `teacher`.`id`, `teacher`.`name`, `teacher`.`sex`, `teacher`.`number`, `teacher`.`departid`, `teacher`.`position`, `teacher`.`phone`, `teacher`.`email`, `teacher`.`image`, `teacher`.`nation`, `teacher`.`polite`, `depart`.`name` AS `departname` FROM `teacher` LEFT JOIN `depart` ON `teacher`.`departid`=`depart`.`id` WHERE `teacher`.`number`='$id' LIMIT 1");
+        $info = $teacher->query("SELECT `student`.`id` AS `id`, `student`.`name` AS `name`, `student`.`sex` AS `sex`, `student`.`number` AS `number`, `student`.`classid` AS `classid`, `student`.`familyid` AS `familyid`, `student`.`phone` AS `phone`, `student`.`email` AS `email`, `student`.`image`, `student`.`address` AS `address`, `student`.`guardername`, `family`.`name` AS `familyname`, `class`.`name` AS `classname` FROM `student` LEFT JOIN `class` ON `student`.`classid`=`class`.`id` LEFT JOIN `family` ON `family`.`id`=`student`.`familyid` WHERE `student`.`number`='$id' LIMIT 1");
         echo '{"success":true,data:' . json_encode($info[0]) . '}';
     }
 
 
-    // 修改教师个人详细信息
+    // 修改学生个人详细信息
     function verifyTeach() {
         $name = $_POST['name'];
         $sex = $_POST['sex'];
         $number = $_POST['number'];
-        $departid = $_POST['departid'];
-        $position = $_POST['position'];
+        $departid = $_POST['classid'];
+        $position = $_POST['familyid'];
         $email = $_POST['email'];
         $phone = $_POST['phone'];
-        $nation = $_POST['nation'];
-        $polite = $_POST['polite'];
-        $teacherModel = D('Teacher');
+        $nation = $_POST['address'];
+        $polite = $_POST['guardername'];
+        $teacherModel = D('Student');
         if(false === $teacherModel->create()) {
             $this->error($teacherModel->getError());
             echo '{"success":false,"msg":"更新失败"}';
@@ -48,12 +48,12 @@ class TeachInfoAction extends CommonAction {
         if($password === $renewPwd) {
             // 两次密码一致
             // 原密码是否正确
-            $teacherModel = M('Teacher');
-            $pwdSource = $teacherModel->field('`password`')->where('`number`=' . $_SESSION['teacher'])->select();
+            $teacherModel = M('Student');
+            $pwdSource = $teacherModel->field('`password`')->where('`number`=' . $_SESSION['student'])->select();
             if($pwdSource[0]['password'] === MD5($oldPwd)) {
                 // 密码正确
                 // 更改密码
-                $info = $teacherModel->where('`number` = ' . $_SESSION['teacher'])->setField('password', MD5($password));
+                $info = $teacherModel->where('`number` = ' . $_SESSION['student'])->setField('password', MD5($password));
                 if(false === $info) {
                     // 修改失败
                     echo '{"success":false,"msg":"密码修改失败"}';

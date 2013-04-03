@@ -171,14 +171,14 @@ Ext.define('MyDesktop.Notice', {
                             items: [
 			                	this.lookNotice()
 			                ]
-                        }, {
+                        /*}, {
                             title: '发布公告',
                             header: false,
                             border: false,
                             layout: 'fit',
                             items: [
                             	this.sendNotice()
-                            ]
+                            ]*/
                         }]
                     }
                 ]

@@ -540,7 +540,7 @@ Ext.define('MyDesktop.Attendance', {
                             items: [
 			                	this.createPersonAttendance()
 			                ]
-                        }, {
+                        /*}, {
                             title: '班级查询',
                             header: false,
                             border: false,
@@ -556,7 +556,7 @@ Ext.define('MyDesktop.Attendance', {
                             layout: 'fit',
                             items: [
                             	this.createPhotoAgain()
-                            ]
+                            ]*/
                         }]
                     }
                 ]

@@ -25,7 +25,6 @@ Ext.define('MyDesktop.App', {
         'MyDesktop.BogusModule',
         
         // 测试添加的组件
-        'MyDesktop.Eric',
         'MyDesktop.TeacherInfomation',				// 教师管理组件
         'MyDesktop.ClassroomInfomation',			// 班级信息管理组件
         'MyDesktop.Attendance',						// 缺勤查询组件
@@ -95,7 +94,7 @@ Ext.define('MyDesktop.App', {
                     { name: '课表信息', iconCls: 'schedule-shortcut', module: 'schedule'},
                     { name: '教室信息', iconCls: 'classroom-shortcut', module: 'classroom'},
                     { name: '缺勤查询', iconCls: 'attendance-shortcut', module: 'attendance'},
-                    { name: '缺勤图表', iconCls: 'chart-shortcut', module: 'checkchart'},
+                    // { name: '缺勤图表', iconCls: 'chart-shortcut', module: 'checkchart'},
                     { name: '通知公告', iconCls: 'notice-shortcut', module: 'notice'},
                     { name: '系统帮助', iconCls: 'systemhelp-shortcut', module: 'help'}
                     

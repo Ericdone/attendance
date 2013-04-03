@@ -200,7 +200,7 @@ Ext.define('MyDesktop.Schedule', {
                             items: [
 			                	this.searchSchedule()
 			                ]
-                        }, {
+                        /*}, {
                             title: '调课申请',
                             header: false,
                             border: false,
@@ -215,7 +215,7 @@ Ext.define('MyDesktop.Schedule', {
                             layout: 'fit',
                             items: [
                                 this.applyHistory()
-                            ]
+                            ]*/
                         }]
                     }
                 ]
