@@ -6,12 +6,19 @@
     <title>视频自动点名系统登录</title>        
     <link rel="stylesheet" href="../Public/css/reset.css" type="text/css" media="screen" charset="utf-8" />
     <link rel="stylesheet" href="../Public/css/structure.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+        function changeType(val) {
+            if(val=='0') {
+                
+            }
+        }
+    </script>
 </head>
 <body>
     <form class="box login" action="__APP__/Index/login" method="POST">
         <fieldset class="boxBody">
-            <label>学号 - Number</label>
-            <input type="text" tabindex="1" placeholder="请输入您的学号" name="number" required>
+            <label id="studentNumber">学号/教工号 - Number</label>
+            <input id="studentNumber" type="text" tabindex="1" placeholder="请输入您的学号/教工号" name="number" required>
             <label>
                 <!-- <a href="#" class="rLink" tabindex="5">Forget your password?</a> -->
                 密码 - Password
@@ -20,15 +27,15 @@
         </fieldset>
         <footer>
             <label>
-                <input type="radio" tabindex="3" name="type" value='0' checked="checked">学生
+                <input type="radio" tabindex="3" name="type" value='0' checked="checked" onclick="changeType('1')">学生
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="radio" tabindex="3" name="type" value='1'>教师
+                <input type="radio" tabindex="3" name="type" value='1' onclick="changeType('0')">教师
             </label>
             <input type="submit" class="btnLogin" value="登录" tabindex="4">
 	</footer>
     </form>
     <footer id="main">
-        <a href="#">Classroom Automatically Named System by Eric</a> | Come from <a href="http://www.hzu.edu.cn" target="_blank">Huizhou University</a>
+        <a href="http://weibo.com/dandan361" target="_blank">Classroom Automatically Named System by Eric</a> | Come from <a href="http://www.hzu.edu.cn" target="_blank">Huizhou University</a>
     </footer>
 </body>
 </html>
