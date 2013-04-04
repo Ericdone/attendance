@@ -251,6 +251,10 @@
     background-image: url(../images/classroom.png);
 }
 
+.sinaweibo-shortcut {
+    background-image: url(../images/sinaweibo.png);
+}
+
 .grid-shortcut {
     background-image: url(../images/grid48x48.png);
 }
