@@ -33,7 +33,7 @@ Ext.define('MyDesktop.App', {
         'MyDesktop.Notice',							// 通知公告组件
         'MyDesktop.Schedule',						// 课表信息组件
         'MyDesktop.Help',							// 系统帮助组件
-        'MyDesktop.SinaWeibo',                      // 微博监督组件
+        'MyDesktop.SinaWeibo',                      // 爱监督组件
 
 //        'MyDesktop.Blockalanche',
         'MyDesktop.Settings'
@@ -96,7 +96,7 @@ Ext.define('MyDesktop.App', {
                     { name: '课表信息', iconCls: 'schedule-shortcut', module: 'schedule'},
                     { name: '教室信息', iconCls: 'classroom-shortcut', module: 'classroom'},
                     { name: '缺勤查询', iconCls: 'attendance-shortcut', module: 'attendance'},
-                    { name: '微博监督', iconCls: 'sinaweibo-shortcut', module: 'sinaweibo'},
+                    { name: '爱监督', iconCls: 'sinaweibo-shortcut', module: 'sinaweibo'},
                     // { name: '缺勤图表', iconCls: 'chart-shortcut', module: 'checkchart'},
                     { name: '通知公告', iconCls: 'notice-shortcut', module: 'notice'},
                     { name: '系统帮助', iconCls: 'systemhelp-shortcut', module: 'help'}

@@ -1,0 +1,221 @@
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript" src="../Public/ext-4.1.1a/bootstrap.js"></script>
+    <script src="../Public/ext-4.1.1a/locale/ext-lang-zh_CN.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="../Public/ext-4.1.1a/resources/css/ext-all.css" />
+    <script type="text/javascript" charset="utf-8">
+        Ext.onReady(function() {
+            Ext.QuickTips.init();
+            var required = '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>';
+            Ext.define('weiboContentModel', {
+                extend: 'Ext.data.Model',
+                fields: [
+                    {type: 'string', name: 'content'},
+                    {type: 'int', name: 'id'}
+                ]
+            });
+            var weiboContentStore = Ext.create('Ext.data.Store', {
+                model: 'weiboContentModel',
+                data: [{
+                    "content": "我是缺勤大王~~~我不想再这样下去了，大家来监督好不好！！！",
+                    "id": 1
+                }, {
+                    "content": "ORG~~~我居然人品大爆发，起床完了。。不甘堕落啊~~~",
+                    "id": 2
+                }, {
+                    "content": "好吧~~我迟到了，大家来鄙视我吧~~",
+                    "id": 3
+                }, {
+                    "content": "求求你把我从缺勤的泥潭中拉出来吧！！",
+                    "id": 4
+                }, {
+                    "content": "缺勤求喷！",
+                    "id": 5
+                }]
+            });
+            Ext.define('sinaWeiboModel', {
+                extend: 'Ext.data.Model',
+                fields: [{
+                    name: 'id',
+                    type: 'int'
+                }, {
+                    name: 'ispublish',
+                    type: 'int'
+                }, {
+                    name: 'isvolient',
+                    type: 'int'
+                }, {
+                    name: 'timestamp',
+                    type: 'int'
+                }, {
+                    name: 'content',
+                    type: 'string'
+                }, {
+                    name: 'isdefine',
+                    type: 'int'
+                }]
+            });
+                    
+            var sinaWeiboStore = Ext.create('Ext.data.Store', {
+                model: 'sinaWeiboModel',
+                proxy: {
+                    type: 'ajax',
+                    url: '__APP__/SinaWeibo/getSinaWeiboSetting',
+                    reader: {
+                        type: 'json',
+                        root: 'data'
+                    }
+                },
+                autoLoad: true
+            });
+            var sinaWeiboPanel = Ext.create('Ext.form.Panel', {
+                header: false,
+                url: '__APP__/SinaWeibo/save',
+                frame: true,
+                bodyStyle: 'padding:5px 5px 0',
+                renderTo: Ext.get('weiboSetting'),
+                width: '100%',
+                border: false,
+                layout: 'anchor',
+                id: 'sinaWeiboPanel',
+                data: sinaWeiboStore,
+                waitMsgTarget: true,
+                defaultType: 'textfield',
+                anchor: '100%',
+                defaults: {
+                    labelAlign: 'right',
+                    bodyPadding: 10,
+                    labelWidth: 80,
+                    anchor: '100%'
+                },
+                items :[{
+                    xtype: 'fieldcontainer',
+                    fieldLabel: '求监督',
+                    margin: '0 0 10 0',
+                    defaultType: 'radiofield',
+                    anchor: '60%',
+                    name: 'ispublish',
+                    defaults: {
+                        flex: 1
+                    },
+                    layout: 'hbox',
+                    items: [{
+                        boxLabel: '开启',
+                        inputValue: '0',
+                        name: 'ispublish',
+                        checked: true
+                    }, {
+                        boxLabel: '禁用',
+                        name: 'ispublish',
+                        inputValue: '1'
+                    }]
+                }, {
+                    xtype: 'radiogroup',
+                    fieldLabel: '强制监督',
+                    margin: '0 0 10 0',
+                    defaultType: 'radio',
+                    anchor: '60%',
+                    name: 'isvolient',
+                    id: 'isvolient',
+                    defaults: {
+                        flex: 1
+                    },
+                    layout: 'hbox',
+                    items: [{
+                        boxLabel: '是',
+                        inputValue: '0',
+                        name: 'isvolient'
+                    }, {
+                        boxLabel: '否',
+                        name: 'isvolient',
+                        inputValue: '1',
+                        checked: true
+                    }]
+                }, {
+                    xtype: 'datefield',
+                    fieldLabel: '强制期限',
+                    anchor: '60%',
+                    id: 'timestamp',
+                    format: 'Y-m-d',
+                    // allowBlank: false,
+                    minValue: new Date(),
+                    name: 'timestamp'
+                }, {
+                    fieldLabel: '微博内容', 
+                    name: 'content',
+                    id: 'content',
+                    store: weiboContentStore,
+                    queryMode: 'local',
+                    displayField: 'content',
+                    valueField: 'content',
+                    triggerAction: 'all',
+                    xtype: 'combobox'
+                }, {
+                    xtype: 'fieldset',
+                    checkboxToggle: true,
+                    title: '自定义微博内容',
+                    defaultType: 'textfield',
+                    collapsed: true,
+                    name: 'isdefine',
+                    defaults: {
+                        labelAlign: 'right',
+                        labelWidth: 70,
+                        padding: 0
+                    },
+                    items :[{
+                        bodyPadding: 0,
+                        margin: 0,
+                        id: 'contentdefine',
+                        xtype: 'textareafield',
+                        name: 'content',
+                        fieldLabel: '微博内容',
+                        height: 200,
+                        anchor: '100%',
+                        disabled: true
+                    }],
+                    listeners: {
+                        // 取消选择时触发
+                        collapse: function(f, eOpts) {
+                            Ext.getCmp('content').enable();
+                            Ext.getCmp('contentdefine').disable();
+                        },
+                        // 选择时触发
+                        expand: function(f, eOpts) {
+                            Ext.getCmp('contentdefine').enable();
+                            Ext.getCmp('content').disable();
+                            //Ext.getCmp('sinaweibo').setHeight(440);
+                        }
+                    }
+                }],
+                buttons: [{
+                    text: '确定',
+                    handler: function() {
+                        var form = this.up('form').getForm();
+                        if(form.isValid()){
+                            form.submit({
+                                waitMsg: '提交数据中...',
+                                success: function(fp, o) {
+                                    Ext.Msg.alert('提示', o.result.msg);
+                                },
+                                failure: function(fp, o) {
+                                    Ext.Msg.alert('提示', o.result.msg);
+                                }
+                            });
+                        }
+                    }
+                }]
+            });
+            sinaWeiboPanel.getForm().load({
+                url: '__APP__/SinaWeibo/getSinaWeiboSetting'
+            });
+            if(Ext.getCmp('content').getValue()=='') {
+                sinaWeiboStore.on('load',function(){Ext.getCmp('content').setValue("好吧~~我迟到了，大家来鄙视我吧~~");});
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="weiboSetting" class="" style="width:100%; height:100%;"></div>
+</body>
+</html>

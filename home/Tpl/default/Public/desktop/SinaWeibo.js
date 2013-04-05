@@ -17,22 +17,23 @@ Ext.define('MyDesktop.SinaWeibo', {
 
     init: function(){
         this.launcher = {
-            text: '微博监督',
+            text: '爱监督',
             iconCls:'tabs'
         }
     },
 
     createWindow : function(){
         var desktop = this.app.getDesktop();
-        var win = desktop.getWindow('teacher-infomation');
+        var win = desktop.getWindow('sinaweibo');
         if(!win){
             win = desktop.createWindow({
-                id: 'teacher-infomation',
-                title:'微博监督',
-                width:650,
-                height:550,
+                id: 'sinaweibo',
+                title:'爱监督',
+                width:400,
+                height:440,
+                frame: true,
+                iconCls: 'sinaweibo',
                 border: false,
-                iconCls: 'person',
                 items: [
                 	this.sinaWeiboPanel()
                 ]
@@ -44,9 +45,10 @@ Ext.define('MyDesktop.SinaWeibo', {
     sinaWeiboPanel: function() {
     	sinaWeiboPanel = Ext.create('Ext.panel.Panel', {
             id: 'sinaWeiboPanel',
-            title: '微博监督',
+            title: '爱监督',
             header: false,
             border: false,
+            frame: true,
             html: '<iframe scrolling="auto" frameborder="0" width="100%" height="100%" src=' + AppUrl + '/SinaWeibo/index></iframe>',
         });
     	return sinaWeiboPanel;

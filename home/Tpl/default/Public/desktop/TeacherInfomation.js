@@ -52,9 +52,9 @@ Ext.define('MyDesktop.TeacherInfomation', {
     			name: 'name',
     			type: 'string'
     		}, {
-                        name: 'number',
-                        type: 'string'
-                }, {
+    			name: 'number',
+    			type: 'string'
+    		}, {
     			name: 'sex',
     			type: 'int'
     		}, {

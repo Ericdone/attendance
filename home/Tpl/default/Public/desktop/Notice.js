@@ -458,7 +458,7 @@ Ext.define('MyDesktop.Notice', {
                 		Ext.getCmp('noticeStudentNumber').enable();
                 		Ext.getCmp('noticeStudentTitle').enable();
                 		Ext.getCmp('noticeStudentContent').enable();
-                	},
+                	}
 	            }
 	        }],
 		    buttons: [{
