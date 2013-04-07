@@ -29,8 +29,8 @@ Ext.define('MyDesktop.SinaWeibo', {
             win = desktop.createWindow({
                 id: 'sinaweibo',
                 title:'爱监督',
-                width:400,
-                height:440,
+                width:650,
+                height:500,
                 frame: true,
                 iconCls: 'sinaweibo',
                 border: false,
@@ -49,6 +49,7 @@ Ext.define('MyDesktop.SinaWeibo', {
             header: false,
             border: false,
             frame: true,
+            overflow:'no',
             html: '<iframe scrolling="auto" frameborder="0" width="100%" height="100%" src=' + AppUrl + '/SinaWeibo/index></iframe>',
         });
     	return sinaWeiboPanel;

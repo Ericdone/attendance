@@ -7,6 +7,29 @@
     <script type="text/javascript" charset="utf-8">
         Ext.onReady(function() {
             Ext.QuickTips.init();
+            // Ext.override(Ext.form.RadioGroup, {
+            //     getValue : function() {
+            //         var v;
+            //         this.items.each(function(item) {
+            //             if (item.getValue()) {
+            //             v = item.getRawValue();
+            //             return false;
+            //         }
+            //     });
+            //     return v;
+            // },
+            //     setValue : function(v) {
+            //         if (this.rendered) {
+            //             this.items.each(function(item) {
+            //                 item.setValue(item.getRawValue() == v);
+            //             });
+            //         } else {
+            //             for (k in this.items) {
+            //                 this.items[k].checked = this.items[k].inputValue == v;
+            //             }
+            //         }
+            //     }
+            // });
             var required = '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>';
             Ext.define('weiboContentModel', {
                 extend: 'Ext.data.Model',
@@ -111,7 +134,7 @@
                         inputValue: '1'
                     }]
                 }, {
-                    xtype: 'radiogroup',
+                    xtype: 'fieldcontainer',
                     fieldLabel: '强制监督',
                     margin: '0 0 10 0',
                     defaultType: 'radio',
@@ -125,12 +148,14 @@
                     items: [{
                         boxLabel: '是',
                         inputValue: '0',
-                        name: 'isvolient'
+                        name: 'isvolient',
+                        id: 'isvolient1'
                     }, {
                         boxLabel: '否',
                         name: 'isvolient',
                         inputValue: '1',
-                        checked: true
+                        checked: true,
+                        id: 'isvolient2'
                     }]
                 }, {
                     xtype: 'datefield',
@@ -138,8 +163,10 @@
                     anchor: '60%',
                     id: 'timestamp',
                     format: 'Y-m-d',
-                    // allowBlank: false,
+                    allowBlank: true,
                     minValue: new Date(),
+                    displayField: 'timestamp',
+                    valueField: 'timestamp',
                     name: 'timestamp'
                 }, {
                     fieldLabel: '微博内容', 
@@ -212,6 +239,9 @@
             if(Ext.getCmp('content').getValue()=='') {
                 sinaWeiboStore.on('load',function(){Ext.getCmp('content').setValue("好吧~~我迟到了，大家来鄙视我吧~~");});
             }
+            // if(Ext.getCmp('isvolient1').getValue()==) {
+            //     sinaWeiboStore.on('load',function(){Ext.getCmp('isvolient1').hide()});
+            // }
         });
     </script>
 </head>
