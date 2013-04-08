@@ -101,14 +101,17 @@ Ext.define('MyDesktop.Settings', {
                     expanded: true,
                     children:[
                         { text: "None", iconCls: '', leaf: true },
-                        child('Blue-Sencha.jpg'),
-                        child('Dark-Sencha.jpg'),
-                        child('Wood-Sencha.jpg'),
                         child('blue.jpg'),
                         child('desk.jpg'),
                         child('desktop.jpg'),
                         child('desktop2.jpg'),
-                        child('sky.jpg')
+                        child('darkblue.jpg'),
+                        child('future.jpg'),
+                        child('skyblue.jpg'),
+                        child('circlelight.jpg'),
+                        child('yellow.jpg'),
+                        child('red.jpg'),
+                        child('light.jpg')
                     ]
                 }
             })

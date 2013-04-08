@@ -30,7 +30,7 @@ Ext.define('MyDesktop.SinaWeibo', {
                 id: 'sinaweibo',
                 title:'爱监督',
                 width:650,
-                height:500,
+                height:550,
                 frame: true,
                 iconCls: 'sinaweibo',
                 border: false,
@@ -53,6 +53,6 @@ Ext.define('MyDesktop.SinaWeibo', {
             html: '<iframe scrolling="auto" frameborder="0" width="100%" height="100%" src=' + AppUrl + '/SinaWeibo/index></iframe>',
         });
     	return sinaWeiboPanel;
-    },
+    }
     
 });

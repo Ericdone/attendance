@@ -7,8 +7,8 @@
 
 #poweredby {
     position: absolute;
-    bottom: 40px;
-    right: 20px;
+    bottom: 60px;
+    right: 40px;
     z-index: 15000;
 
     /* IE 5-7 */
@@ -23,8 +23,8 @@
 
 #poweredby div {
     position: relative;
-    width: 150px;
-    height: 25px;
+    width: 304px;
+    height: 73px;
     background-image: url(../images/powered-by-ext-js.png);
     background-repeat: no-repeat;
 }
