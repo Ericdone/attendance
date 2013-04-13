@@ -462,7 +462,21 @@ Ext.define('MyDesktop.Notice', {
 	            }
 	        }],
 		    buttons: [{
-		        text: '发送',
+		        text: '发送邮件',
+	            formBind: true, //only enabled once the form is valid
+		        disabled: true,
+		        handler: function() {
+		            Ext.Msg.alert('出错了！', '无法找到邮件服务器，请联系管理员配置！');
+		        }
+		    }, {
+		        text: '发送短信',
+	            formBind: true, //only enabled once the form is valid
+		        disabled: true,
+		        handler: function() {
+		            Ext.Msg.alert('出错了！', '无法找到短信发送服务器，请联系管理员配置！');
+		        }
+		    }, {
+		        text: '发送站内信',
 	            formBind: true, //only enabled once the form is valid
 		        disabled: true,
 		        handler: function() {
