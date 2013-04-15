@@ -157,31 +157,29 @@ Ext.define('MyDesktop.Notice', {
                 constrainHeader:true,
 
                 layout: 'fit',
-                items: [
-                    {
-                        xtype: 'tabpanel',
-                        activeTab:0,
-                        bodyStyle: 'padding: 0px;',
+                items: [{
+                    xtype: 'tabpanel',
+                    activeTab:0,
+                    bodyStyle: 'padding: 0px;',
 
-                        items: [{
-                            title: '查看公告',
-                            header:false,
-                            border:false,
-                            layout: 'fit',
-                            items: [
-			                	this.lookNotice()
-			                ]
-                        /*}, {
-                            title: '发布公告',
-                            header: false,
-                            border: false,
-                            layout: 'fit',
-                            items: [
-                            	this.sendNotice()
-                            ]*/
-                        }]
-                    }
-                ]
+                    items: [{
+                        title: '查看公告',
+                        header:false,
+                        border:false,
+                        layout: 'fit',
+                        items: [
+		                	this.lookNotice()
+		                ]
+                    /*}, {
+                        title: '发布公告',
+                        header: false,
+                        border: false,
+                        layout: 'fit',
+                        items: [
+                        	this.sendNotice()
+                        ]*/
+                    }]
+                }]
             });
         }
         return win;
@@ -208,6 +206,12 @@ Ext.define('MyDesktop.Notice', {
             }, {
                 name: 'studentid',
                 type: 'string'
+            }, {
+            	name: 'studentname',
+            	type: 'string'
+            }, {
+            	name: 'teachername',
+            	type: 'string'
             }]
         });
         
@@ -239,14 +243,14 @@ Ext.define('MyDesktop.Notice', {
                 dataIndex: 'content'
             }, {
                 text: '发布人',
-                dataIndex: 'teacherid'
+                dataIndex: 'teachername'
             }, {
                 text: '发布时间',
                 dataIndex: 'time',
                 width: 120
             }, {
                 text: '接收方',
-                dataIndex: 'studentid'
+                dataIndex: 'studentname'
             }, {
             	menuDisabled: true,
                 sortable: false,

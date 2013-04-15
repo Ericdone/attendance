@@ -8,10 +8,12 @@ class NoticeAction extends CommonAction {
     public function getNotice() {
         $start = isset($_GET['start']) ? $_GET['start']:0;              // 开始ID
         $limit = isset($_GET['limit']) ? $_GET['limit']:20;             // 每页条数
+        $id = session('student');
 
         $noticeModel = M('Notice');
-        $info = $noticeModel->limit("$start, $limit")->order('id desc')->select();
-        $total = $noticeModel->select();
+        // $info = $noticeModel->limit("$start, $limit")->order('id desc')->select();
+        $info = $noticeModel->query("SELECT `notice`.`id` AS `id`, `notice`.`name` AS `name`, `notice`.`content` AS `content`, `notice`.`teacherid` AS `teacherid`, `notice`.`time` AS `time`, `notice`.`studentid` AS `studentid`, `notice`.`status` AS `status`, `notice`.`isAll` AS `isAll`, `teacher`.`name` AS `teachername`, `student`.`name` AS `studentname`, `student`.`number` AS `studentnumber` FROM `notice` LEFT JOIN `student` ON `student`.`number`=`notice`.`studentid` LEFT JOIN `teacher` ON `teacher`.`number`=`notice`.`teacherid` WHERE `notice`.`studentid`='$id' ORDER BY `notice`.`id` DESC LIMIT $start, $limit");
+        $total = $noticeModel->where("`notice`.`studentid`=$id")->select();
         if($info) {
             echo '{"success":true,data:' . json_encode($info) . ',"total": ' . count($total) . '}';
         }

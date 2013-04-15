@@ -103,7 +103,7 @@ Ext.define('MyDesktop.App', {
                 ]
             }),
 
-            wallpaper: WallPapers + 'light.jpg',
+            wallpaper: WallPapers + 'Generation.jpg',
             wallpaperStretch: true
         });
     },

@@ -8,6 +8,7 @@ class ClassroomAction extends CommonAction {
     public function getClassroom() {
         $start = isset($_GET['start']) ? $_GET['start']:0;              // 开始ID
         $limit = isset($_GET['limit']) ? $_GET['limit']:20;             // 每页条数
+        $id = session('student');
 
         $classroomModel = M('Classroom');
         $info = $classroomModel->limit("$start, $limit")->select();

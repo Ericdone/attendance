@@ -200,13 +200,13 @@ Ext.define('MyDesktop.Notice', {
                 name: 'content',
                 type: 'string'
             }, {
-                name: 'teacherid',
-                type: 'int'
+                name: 'teachername',
+                type: 'string'
             }, {
                 name: 'time',
                 type: 'int'
             }, {
-                name: 'studentid',
+                name: 'studentname',
                 type: 'string'
             }]
         });
@@ -239,14 +239,14 @@ Ext.define('MyDesktop.Notice', {
                 dataIndex: 'content'
             }, {
                 text: '发布人',
-                dataIndex: 'teacherid'
+                dataIndex: 'teachername'
             }, {
                 text: '发布时间',
                 dataIndex: 'time',
                 width: 120
             }, {
                 text: '接收方',
-                dataIndex: 'studentid'
+                dataIndex: 'studentname'
             }, {
             	menuDisabled: true,
                 sortable: false,

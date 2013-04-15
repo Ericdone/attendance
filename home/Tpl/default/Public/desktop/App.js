@@ -105,7 +105,7 @@ Ext.define('MyDesktop.App', {
                 ]
             }),
 
-            wallpaper: WallPapers + 'light.jpg',
+            wallpaper: WallPapers + 'generation.jpg',
             wallpaperStretch: true
         });
     },
@@ -144,7 +144,7 @@ Ext.define('MyDesktop.App', {
 
         return Ext.apply(ret, {
             quickStart: [
-                { name: '缺勤查询', iconCls: 'attendance', module: 'attendance' },
+                { name: '爱监督', iconCls: 'sinaweibo', module: 'sinaweibo'},
                 { name: '班级信息', iconCls: 'classmate', module: 'classroom-informaiton' }
             ],
             trayItems: [
