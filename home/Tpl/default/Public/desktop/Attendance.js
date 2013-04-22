@@ -706,10 +706,37 @@ Ext.define('MyDesktop.Attendance', {
 		        	}]
 		    	}]
     		}],
-    		html: 'dddddddddddddd'
+    		html: '无法连接到拍照服务器！'
     		// html: '<iframe scrolling="auto" frameborder="0" width="100%" height="100%" src=' + AppUrl + '/Attendance/photoAgain/photoQueryObj/' + photoQueryObj + '></iframe>'
     	});
     	return photoPanel;
+    },
+
+    statusChange: function(status) {
+    	if(status == 0) {
+    		return '<span style="color:red;">旷课</span>';
+    	} else if(status == 1)  {
+    		return '<span style="color:#9400D3;">迟到</span>';
+    	} else if(status == 2)  {
+    		return '<span style="color:#FF6699;">早退</span>';
+    	} else if(status == 3)  {
+    		return '<span style="color:#FF3399;">病假</span>';
+    	} else if(status == 4)  {
+    		return '<span style="color:#FF0099;">事假</span>';
+    	} else if(status == 5)  {
+    		return '<span style="color:#FF00CC;">公假</span>';
+    	}
+    },
+
+    checkagainChange: function(status) {
+    	doapply = function() {
+	    	Ext.Msg.alert('提示', '申请成功');
+	    };
+    	if(status == 0) {
+    		return '<img alt="" src="/attendance/teacher/Tpl/default/Public/shared/icons/fam/table_refresh.png" class="x-action-col-icon x-action-col-0" data-qtip="申请" onclick=doapply()>';
+    	} else {
+    		return '<span style="color:red;">已申请</span>';
+    	}
     },
     
     // 创建个人缺勤搜索面板
@@ -798,10 +825,12 @@ Ext.define('MyDesktop.Attendance', {
 		    	dataIndex: 'time'
 		    }, {
 		    	text: '缺勤情况',
-		    	dataIndex: 'status'
+		    	dataIndex: 'status',
+		    	renderer: this.statusChange
 		    }, {
 		    	text: '可申请重查',
-		    	dataIndex: 'checkagain'
+		    	dataIndex: 'checkagain',
+		    	renderer: this.checkagainChange
 		    }],
 		    header: false,
 		    
@@ -1055,7 +1084,8 @@ Ext.define('MyDesktop.Attendance', {
 		    	dataIndex: 'status'
 		    }, {
 		    	text: '可申请重查',
-		    	dataIndex: 'checkagain'
+		    	dataIndex: 'checkagain',
+		    	renderer: this.checkagainChange
 		    }],
 		    header: false,
 		    

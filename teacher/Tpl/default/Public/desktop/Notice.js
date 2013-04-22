@@ -114,12 +114,6 @@ function splitString(string, separator, howmany) {
 	return newString;
 };
 
-// 格式化时间
-function changeTime(value) {
-	// return Ext.util.Format.date(new Date(val), 'Y年m月d日');
-	// return Ext.util.Format.date(new Date(parseInt(value)), 'Y-m-d');
-};
-
 Ext.define('MyDesktop.Notice', {
     extend: 'Ext.ux.desktop.Module',
 
@@ -141,6 +135,13 @@ Ext.define('MyDesktop.Notice', {
             iconCls:'notice'
         }
     },
+
+    // 格式化时间
+	changeTime: function (value) {
+		// return Ext.util.Format.date(new Date(val), 'Y年m月d日');
+		return new Date(parseInt(value) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日/g, " "); 
+		// return Ext.util.Format.date(new Date(parseInt(value)), 'Y-m-d');
+	},
 
     createWindow : function(){
         var desktop = this.app.getDesktop();
@@ -243,7 +244,8 @@ Ext.define('MyDesktop.Notice', {
             }, {
                 text: '发布时间',
                 dataIndex: 'time',
-                width: 120
+                renderer: this.changeTime,
+                width: 150
             }, {
                 text: '接收方',
                 dataIndex: 'studentname'
@@ -466,7 +468,18 @@ Ext.define('MyDesktop.Notice', {
 	            formBind: true, //only enabled once the form is valid
 		        disabled: true,
 		        handler: function() {
-		            Ext.Msg.alert('出错了！', '无法找到邮件服务器，请联系管理员配置！');
+		            // Ext.Msg.alert('出错了！', '无法找到邮件服务器，请联系管理员配置！');
+					var fullvalue = sendNoticePanel.getForm().getValues();
+					Ext.Ajax.request({
+					    url: AppUrl + '/Notice/sendmail/data/' + Ext.encode(fullvalue),
+					    params: {
+					        data: Ext.encode(fullvalue)
+					    },
+					    success: function(response){
+					        Ext.Msg.alert('成功', '发送邮件成功');
+					        lookNoticeStore.load();
+					    }
+					});
 		        }
 		    }, {
 		        text: '发送短信',

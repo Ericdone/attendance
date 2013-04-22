@@ -1,0 +1,84 @@
+[ 2013-04-22T10:21:13+08:00 ] /attendance/ | INFO: Tag[ app_begin ] --START--
+[ 2013-04-22T10:21:13+08:00 ] /attendance/ | INFO: Run ReadHtmlCache Behavior [ RunTime:0.067554s ]
+[ 2013-04-22T10:21:13+08:00 ] /attendance/ | INFO: Tag[ app_begin ] --END-- [ RunTime:0.103240s ]
+[ 2013-04-22T10:21:13+08:00 ] /attendance/ | INFO: Tag[ view_template ] --START--
+[ 2013-04-22T10:21:13+08:00 ] /attendance/ | INFO: Run LocationTemplate Behavior [ RunTime:0.049762s ]
+[ 2013-04-22T10:21:13+08:00 ] /attendance/ | INFO: Tag[ view_template ] --END-- [ RunTime:0.049843s ]
+[ 2013-04-22T10:21:13+08:00 ] /attendance/ | INFO: Tag[ view_parse ] --START--
+[ 2013-04-22T10:21:14+08:00 ] /attendance/ | INFO: Run ParseTemplate Behavior [ RunTime:0.135219s ]
+[ 2013-04-22T10:21:14+08:00 ] /attendance/ | INFO: Tag[ view_parse ] --END-- [ RunTime:0.135321s ]
+[ 2013-04-22T10:21:14+08:00 ] /attendance/ | INFO: Tag[ view_filter ] --START--
+[ 2013-04-22T10:21:14+08:00 ] /attendance/ | INFO: Run ContentReplace Behavior [ RunTime:0.019992s ]
+[ 2013-04-22T10:21:14+08:00 ] /attendance/ | INFO: Run TokenBuild Behavior [ RunTime:0.037785s ]
+[ 2013-04-22T10:21:14+08:00 ] /attendance/ | INFO: Run WriteHtmlCache Behavior [ RunTime:0.001142s ]
+[ 2013-04-22T10:21:14+08:00 ] /attendance/ | INFO: Run ShowRuntime Behavior [ RunTime:0.001280s ]
+[ 2013-04-22T10:21:14+08:00 ] /attendance/ | INFO: Tag[ view_filter ] --END-- [ RunTime:0.060388s ]
+[ 2013-04-22T10:21:14+08:00 ] /attendance/ | INFO: Tag[ view_end ] --START--
+[ 2013-04-22T10:21:14+08:00 ] /attendance/ | INFO: Run ShowPageTrace Behavior [ RunTime:0.013960s ]
+[ 2013-04-22T10:21:14+08:00 ] /attendance/ | INFO: Tag[ view_end ] --END-- [ RunTime:0.014020s ]
+[ 2013-04-22T10:22:23+08:00 ] /attendance/index.php/Lib/logout?_dc=1366597343397 | INFO: Tag[ route_check ] --START--
+[ 2013-04-22T10:22:23+08:00 ] /attendance/index.php/Lib/logout?_dc=1366597343397 | INFO: Run CheckRoute Behavior [ RunTime:0.025371s ]
+[ 2013-04-22T10:22:23+08:00 ] /attendance/index.php/Lib/logout?_dc=1366597343397 | INFO: Tag[ route_check ] --END-- [ RunTime:0.025479s ]
+[ 2013-04-22T10:22:23+08:00 ] /attendance/index.php/Lib/logout?_dc=1366597343397 | INFO: Tag[ app_begin ] --START--
+[ 2013-04-22T10:22:23+08:00 ] /attendance/index.php/Lib/logout?_dc=1366597343397 | INFO: Run ReadHtmlCache Behavior [ RunTime:0.001375s ]
+[ 2013-04-22T10:22:23+08:00 ] /attendance/index.php/Lib/logout?_dc=1366597343397 | INFO: Tag[ app_begin ] --END-- [ RunTime:0.001438s ]
+[ 2013-04-22T11:57:28+08:00 ] /attendance/index.php | INFO: Tag[ app_begin ] --START--
+[ 2013-04-22T11:57:28+08:00 ] /attendance/index.php | INFO: Run ReadHtmlCache Behavior [ RunTime:0.000518s ]
+[ 2013-04-22T11:57:28+08:00 ] /attendance/index.php | INFO: Tag[ app_begin ] --END-- [ RunTime:0.000610s ]
+[ 2013-04-22T11:57:28+08:00 ] /attendance/index.php | INFO: Tag[ view_template ] --START--
+[ 2013-04-22T11:57:28+08:00 ] /attendance/index.php | INFO: Run LocationTemplate Behavior [ RunTime:0.000681s ]
+[ 2013-04-22T11:57:28+08:00 ] /attendance/index.php | INFO: Tag[ view_template ] --END-- [ RunTime:0.000730s ]
+[ 2013-04-22T11:57:28+08:00 ] /attendance/index.php | INFO: Tag[ view_parse ] --START--
+[ 2013-04-22T11:57:28+08:00 ] /attendance/index.php | INFO: Run ParseTemplate Behavior [ RunTime:0.006346s ]
+[ 2013-04-22T11:57:28+08:00 ] /attendance/index.php | INFO: Tag[ view_parse ] --END-- [ RunTime:0.006405s ]
+[ 2013-04-22T11:57:28+08:00 ] /attendance/index.php | INFO: Tag[ view_filter ] --START--
+[ 2013-04-22T11:57:28+08:00 ] /attendance/index.php | INFO: Run ContentReplace Behavior [ RunTime:0.000301s ]
+[ 2013-04-22T11:57:28+08:00 ] /attendance/index.php | INFO: Run TokenBuild Behavior [ RunTime:0.000314s ]
+[ 2013-04-22T11:57:28+08:00 ] /attendance/index.php | INFO: Run WriteHtmlCache Behavior [ RunTime:0.000203s ]
+[ 2013-04-22T11:57:28+08:00 ] /attendance/index.php | INFO: Run ShowRuntime Behavior [ RunTime:0.000351s ]
+[ 2013-04-22T11:57:28+08:00 ] /attendance/index.php | INFO: Tag[ view_filter ] --END-- [ RunTime:0.001283s ]
+[ 2013-04-22T11:57:28+08:00 ] /attendance/index.php | INFO: Tag[ view_end ] --START--
+[ 2013-04-22T11:57:28+08:00 ] /attendance/index.php | INFO: Run ShowPageTrace Behavior [ RunTime:0.000351s ]
+[ 2013-04-22T11:57:28+08:00 ] /attendance/index.php | INFO: Tag[ view_end ] --END-- [ RunTime:0.000389s ]
+[ 2013-04-22T11:57:35+08:00 ] /attendance/index.php/Notice/getNotice?_dc=1366603055202&page=1&start=0&limit=20 | INFO: Tag[ route_check ] --START--
+[ 2013-04-22T11:57:35+08:00 ] /attendance/index.php/Notice/getNotice?_dc=1366603055202&page=1&start=0&limit=20 | INFO: Run CheckRoute Behavior [ RunTime:0.001128s ]
+[ 2013-04-22T11:57:35+08:00 ] /attendance/index.php/Notice/getNotice?_dc=1366603055202&page=1&start=0&limit=20 | INFO: Tag[ route_check ] --END-- [ RunTime:0.001215s ]
+[ 2013-04-22T11:57:35+08:00 ] /attendance/index.php/Notice/getNotice?_dc=1366603055202&page=1&start=0&limit=20 | INFO: Tag[ app_begin ] --START--
+[ 2013-04-22T11:57:35+08:00 ] /attendance/index.php/Notice/getNotice?_dc=1366603055202&page=1&start=0&limit=20 | INFO: Run ReadHtmlCache Behavior [ RunTime:0.000903s ]
+[ 2013-04-22T11:57:35+08:00 ] /attendance/index.php/Notice/getNotice?_dc=1366603055202&page=1&start=0&limit=20 | INFO: Tag[ app_begin ] --END-- [ RunTime:0.000954s ]
+[ 2013-04-22T11:57:35+08:00 ] /attendance/index.php/Notice/getNotice?_dc=1366603055202&page=1&start=0&limit=20 | SQL: SHOW COLUMNS FROM `notice` [ RunTime:0.002061s ]
+[ 2013-04-22T11:57:35+08:00 ] /attendance/index.php/Notice/getNotice?_dc=1366603055202&page=1&start=0&limit=20 | SQL: SELECT `notice`.`id` AS `id`, `notice`.`name` AS `name`, `notice`.`content` AS `content`, `notice`.`teacherid` AS `teacherid`, `notice`.`time` AS `time`, `notice`.`studentid` AS `studentid`, `notice`.`status` AS `status`, `notice`.`isAll` AS `isAll`, `teacher`.`name` AS `teachername`, `student`.`name` AS `studentname`, `student`.`number` AS `studentnumber` FROM `notice` LEFT JOIN `student` ON `student`.`number`=`notice`.`studentid` LEFT JOIN `teacher` ON `teacher`.`number`=`notice`.`teacherid` WHERE `notice`.`studentid`='091402116' ORDER BY `notice`.`id` DESC LIMIT 0, 20 [ RunTime:0.005524s ]
+[ 2013-04-22T11:57:35+08:00 ] /attendance/index.php/Notice/getNotice?_dc=1366603055202&page=1&start=0&limit=20 | SQL: SELECT * FROM `notice` WHERE `notice`.`studentid`=091402116  [ RunTime:0.001523s ]
+[ 2013-04-22T11:58:11+08:00 ] /attendance/index.php | INFO: Tag[ app_begin ] --START--
+[ 2013-04-22T11:58:11+08:00 ] /attendance/index.php | INFO: Run ReadHtmlCache Behavior [ RunTime:0.000809s ]
+[ 2013-04-22T11:58:11+08:00 ] /attendance/index.php | INFO: Tag[ app_begin ] --END-- [ RunTime:0.000902s ]
+[ 2013-04-22T11:58:11+08:00 ] /attendance/index.php | INFO: Tag[ view_template ] --START--
+[ 2013-04-22T11:58:11+08:00 ] /attendance/index.php | INFO: Run LocationTemplate Behavior [ RunTime:0.000999s ]
+[ 2013-04-22T11:58:11+08:00 ] /attendance/index.php | INFO: Tag[ view_template ] --END-- [ RunTime:0.001049s ]
+[ 2013-04-22T11:58:11+08:00 ] /attendance/index.php | INFO: Tag[ view_parse ] --START--
+[ 2013-04-22T11:58:11+08:00 ] /attendance/index.php | INFO: Run ParseTemplate Behavior [ RunTime:0.007751s ]
+[ 2013-04-22T11:58:11+08:00 ] /attendance/index.php | INFO: Tag[ view_parse ] --END-- [ RunTime:0.007806s ]
+[ 2013-04-22T11:58:11+08:00 ] /attendance/index.php | INFO: Tag[ view_filter ] --START--
+[ 2013-04-22T11:58:11+08:00 ] /attendance/index.php | INFO: Run ContentReplace Behavior [ RunTime:0.000615s ]
+[ 2013-04-22T11:58:11+08:00 ] /attendance/index.php | INFO: Run TokenBuild Behavior [ RunTime:0.000638s ]
+[ 2013-04-22T11:58:11+08:00 ] /attendance/index.php | INFO: Run WriteHtmlCache Behavior [ RunTime:0.000832s ]
+[ 2013-04-22T11:58:11+08:00 ] /attendance/index.php | INFO: Run ShowRuntime Behavior [ RunTime:0.000693s ]
+[ 2013-04-22T11:58:11+08:00 ] /attendance/index.php | INFO: Tag[ view_filter ] --END-- [ RunTime:0.002896s ]
+[ 2013-04-22T11:58:11+08:00 ] /attendance/index.php | INFO: Tag[ view_end ] --START--
+[ 2013-04-22T11:58:11+08:00 ] /attendance/index.php | INFO: Run ShowPageTrace Behavior [ RunTime:0.000729s ]
+[ 2013-04-22T11:58:11+08:00 ] /attendance/index.php | INFO: Tag[ view_end ] --END-- [ RunTime:0.000772s ]
+[ 2013-04-22T11:58:13+08:00 ] /attendance/index.php/Notice/getNotice?_dc=1366603093390&page=1&start=0&limit=20 | INFO: Tag[ route_check ] --START--
+[ 2013-04-22T11:58:13+08:00 ] /attendance/index.php/Notice/getNotice?_dc=1366603093390&page=1&start=0&limit=20 | INFO: Run CheckRoute Behavior [ RunTime:0.001124s ]
+[ 2013-04-22T11:58:13+08:00 ] /attendance/index.php/Notice/getNotice?_dc=1366603093390&page=1&start=0&limit=20 | INFO: Tag[ route_check ] --END-- [ RunTime:0.001217s ]
+[ 2013-04-22T11:58:13+08:00 ] /attendance/index.php/Notice/getNotice?_dc=1366603093390&page=1&start=0&limit=20 | INFO: Tag[ app_begin ] --START--
+[ 2013-04-22T11:58:13+08:00 ] /attendance/index.php/Notice/getNotice?_dc=1366603093390&page=1&start=0&limit=20 | INFO: Run ReadHtmlCache Behavior [ RunTime:0.000865s ]
+[ 2013-04-22T11:58:13+08:00 ] /attendance/index.php/Notice/getNotice?_dc=1366603093390&page=1&start=0&limit=20 | INFO: Tag[ app_begin ] --END-- [ RunTime:0.000914s ]
+[ 2013-04-22T11:58:13+08:00 ] /attendance/index.php/Notice/getNotice?_dc=1366603093390&page=1&start=0&limit=20 | SQL: SHOW COLUMNS FROM `notice` [ RunTime:0.003392s ]
+[ 2013-04-22T11:58:13+08:00 ] /attendance/index.php/Notice/getNotice?_dc=1366603093390&page=1&start=0&limit=20 | SQL: SELECT `notice`.`id` AS `id`, `notice`.`name` AS `name`, `notice`.`content` AS `content`, `notice`.`teacherid` AS `teacherid`, `notice`.`time` AS `time`, `notice`.`studentid` AS `studentid`, `notice`.`status` AS `status`, `notice`.`isAll` AS `isAll`, `teacher`.`name` AS `teachername`, `student`.`name` AS `studentname`, `student`.`number` AS `studentnumber` FROM `notice` LEFT JOIN `student` ON `student`.`number`=`notice`.`studentid` LEFT JOIN `teacher` ON `teacher`.`number`=`notice`.`teacherid` WHERE `notice`.`studentid`='091402116' ORDER BY `notice`.`id` DESC LIMIT 0, 20 [ RunTime:0.007100s ]
+[ 2013-04-22T11:58:13+08:00 ] /attendance/index.php/Notice/getNotice?_dc=1366603093390&page=1&start=0&limit=20 | SQL: SELECT * FROM `notice` WHERE `notice`.`studentid`=091402116  [ RunTime:0.001929s ]
+[ 2013-04-22T11:58:21+08:00 ] /attendance/index.php/Lib/logout?_dc=1366603101343 | INFO: Tag[ route_check ] --START--
+[ 2013-04-22T11:58:21+08:00 ] /attendance/index.php/Lib/logout?_dc=1366603101343 | INFO: Run CheckRoute Behavior [ RunTime:0.000662s ]
+[ 2013-04-22T11:58:21+08:00 ] /attendance/index.php/Lib/logout?_dc=1366603101343 | INFO: Tag[ route_check ] --END-- [ RunTime:0.000730s ]
+[ 2013-04-22T11:58:21+08:00 ] /attendance/index.php/Lib/logout?_dc=1366603101343 | INFO: Tag[ app_begin ] --START--
+[ 2013-04-22T11:58:21+08:00 ] /attendance/index.php/Lib/logout?_dc=1366603101343 | INFO: Run ReadHtmlCache Behavior [ RunTime:0.000424s ]
+[ 2013-04-22T11:58:21+08:00 ] /attendance/index.php/Lib/logout?_dc=1366603101343 | INFO: Tag[ app_begin ] --END-- [ RunTime:0.000465s ]

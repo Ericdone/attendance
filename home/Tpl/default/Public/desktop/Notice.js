@@ -114,11 +114,6 @@ function splitString(string, separator, howmany) {
 	return newString;
 };
 
-// 格式化时间
-function changeTime(value) {
-	// return Ext.util.Format.date(new Date(val), 'Y年m月d日');
-	// return Ext.util.Format.date(new Date(parseInt(value)), 'Y-m-d');
-};
 
 Ext.define('MyDesktop.Notice', {
     extend: 'Ext.ux.desktop.Module',
@@ -184,6 +179,13 @@ Ext.define('MyDesktop.Notice', {
         }
         return win;
     },
+
+    // 格式化时间
+	changeTime: function (value) {
+		// return Ext.util.Format.date(new Date(val), 'Y年m月d日');
+		return new Date(parseInt(value) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日/g, " "); 
+		// return Ext.util.Format.date(new Date(parseInt(value)), 'Y-m-d');
+	},
     
     lookNotice: function() {
     	Ext.define('lookNoticeModel', {
@@ -247,7 +249,8 @@ Ext.define('MyDesktop.Notice', {
             }, {
                 text: '发布时间',
                 dataIndex: 'time',
-                width: 120
+                width: 150,
+                renderer: this.changeTime
             }, {
                 text: '接收方',
                 dataIndex: 'studentname'

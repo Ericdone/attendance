@@ -1,0 +1,72 @@
+[ 2013-04-22T10:22:23+08:00 ] /attendance/login.php | INFO: Tag[ app_begin ] --START--
+[ 2013-04-22T10:22:23+08:00 ] /attendance/login.php | INFO: Run ReadHtmlCache Behavior [ RunTime:0.000463s ]
+[ 2013-04-22T10:22:23+08:00 ] /attendance/login.php | INFO: Tag[ app_begin ] --END-- [ RunTime:0.000539s ]
+[ 2013-04-22T10:22:23+08:00 ] /attendance/login.php | INFO: Tag[ view_template ] --START--
+[ 2013-04-22T10:22:23+08:00 ] /attendance/login.php | INFO: Run LocationTemplate Behavior [ RunTime:0.001741s ]
+[ 2013-04-22T10:22:23+08:00 ] /attendance/login.php | INFO: Tag[ view_template ] --END-- [ RunTime:0.001807s ]
+[ 2013-04-22T10:22:23+08:00 ] /attendance/login.php | INFO: Tag[ view_parse ] --START--
+[ 2013-04-22T10:22:23+08:00 ] /attendance/login.php | INFO: Run ParseTemplate Behavior [ RunTime:0.033444s ]
+[ 2013-04-22T10:22:23+08:00 ] /attendance/login.php | INFO: Tag[ view_parse ] --END-- [ RunTime:0.033504s ]
+[ 2013-04-22T10:22:23+08:00 ] /attendance/login.php | INFO: Tag[ view_filter ] --START--
+[ 2013-04-22T10:22:23+08:00 ] /attendance/login.php | INFO: Run ContentReplace Behavior [ RunTime:0.000706s ]
+[ 2013-04-22T10:22:23+08:00 ] /attendance/login.php | INFO: Run TokenBuild Behavior [ RunTime:0.000778s ]
+[ 2013-04-22T10:22:23+08:00 ] /attendance/login.php | INFO: Run WriteHtmlCache Behavior [ RunTime:0.000550s ]
+[ 2013-04-22T10:22:23+08:00 ] /attendance/login.php | INFO: Run ShowRuntime Behavior [ RunTime:0.000804s ]
+[ 2013-04-22T10:22:23+08:00 ] /attendance/login.php | INFO: Tag[ view_filter ] --END-- [ RunTime:0.002971s ]
+[ 2013-04-22T10:22:23+08:00 ] /attendance/login.php | INFO: Tag[ view_end ] --START--
+[ 2013-04-22T10:22:23+08:00 ] /attendance/login.php | INFO: Run ShowPageTrace Behavior [ RunTime:0.000782s ]
+[ 2013-04-22T10:22:23+08:00 ] /attendance/login.php | INFO: Tag[ view_end ] --END-- [ RunTime:0.000823s ]
+[ 2013-04-22T10:23:23+08:00 ] /attendance/login.php | INFO: Tag[ app_begin ] --START--
+[ 2013-04-22T10:23:23+08:00 ] /attendance/login.php | INFO: Run ReadHtmlCache Behavior [ RunTime:0.001028s ]
+[ 2013-04-22T10:23:23+08:00 ] /attendance/login.php | INFO: Tag[ app_begin ] --END-- [ RunTime:0.001113s ]
+[ 2013-04-22T10:23:23+08:00 ] /attendance/login.php | INFO: Tag[ view_template ] --START--
+[ 2013-04-22T10:23:23+08:00 ] /attendance/login.php | INFO: Run LocationTemplate Behavior [ RunTime:0.001103s ]
+[ 2013-04-22T10:23:23+08:00 ] /attendance/login.php | INFO: Tag[ view_template ] --END-- [ RunTime:0.001180s ]
+[ 2013-04-22T10:23:23+08:00 ] /attendance/login.php | INFO: Tag[ view_parse ] --START--
+[ 2013-04-22T10:23:23+08:00 ] /attendance/login.php | INFO: Run ParseTemplate Behavior [ RunTime:0.014077s ]
+[ 2013-04-22T10:23:23+08:00 ] /attendance/login.php | INFO: Tag[ view_parse ] --END-- [ RunTime:0.014140s ]
+[ 2013-04-22T10:23:23+08:00 ] /attendance/login.php | INFO: Tag[ view_filter ] --START--
+[ 2013-04-22T10:23:23+08:00 ] /attendance/login.php | INFO: Run ContentReplace Behavior [ RunTime:0.000718s ]
+[ 2013-04-22T10:23:23+08:00 ] /attendance/login.php | INFO: Run TokenBuild Behavior [ RunTime:0.000780s ]
+[ 2013-04-22T10:23:23+08:00 ] /attendance/login.php | INFO: Run WriteHtmlCache Behavior [ RunTime:0.000598s ]
+[ 2013-04-22T10:23:23+08:00 ] /attendance/login.php | INFO: Run ShowRuntime Behavior [ RunTime:0.000814s ]
+[ 2013-04-22T10:23:23+08:00 ] /attendance/login.php | INFO: Tag[ view_filter ] --END-- [ RunTime:0.003056s ]
+[ 2013-04-22T10:23:23+08:00 ] /attendance/login.php | INFO: Tag[ view_end ] --START--
+[ 2013-04-22T10:23:23+08:00 ] /attendance/login.php | INFO: Run ShowPageTrace Behavior [ RunTime:0.000790s ]
+[ 2013-04-22T10:23:23+08:00 ] /attendance/login.php | INFO: Tag[ view_end ] --END-- [ RunTime:0.000833s ]
+[ 2013-04-22T11:57:18+08:00 ] /attendance/login.php | INFO: Tag[ app_begin ] --START--
+[ 2013-04-22T11:57:18+08:00 ] /attendance/login.php | INFO: Run ReadHtmlCache Behavior [ RunTime:0.000662s ]
+[ 2013-04-22T11:57:18+08:00 ] /attendance/login.php | INFO: Tag[ app_begin ] --END-- [ RunTime:0.000783s ]
+[ 2013-04-22T11:57:18+08:00 ] /attendance/login.php | INFO: Tag[ view_template ] --START--
+[ 2013-04-22T11:57:18+08:00 ] /attendance/login.php | INFO: Run LocationTemplate Behavior [ RunTime:0.001548s ]
+[ 2013-04-22T11:57:18+08:00 ] /attendance/login.php | INFO: Tag[ view_template ] --END-- [ RunTime:0.001627s ]
+[ 2013-04-22T11:57:18+08:00 ] /attendance/login.php | INFO: Tag[ view_parse ] --START--
+[ 2013-04-22T11:57:18+08:00 ] /attendance/login.php | INFO: Run ParseTemplate Behavior [ RunTime:0.009462s ]
+[ 2013-04-22T11:57:18+08:00 ] /attendance/login.php | INFO: Tag[ view_parse ] --END-- [ RunTime:0.009546s ]
+[ 2013-04-22T11:57:18+08:00 ] /attendance/login.php | INFO: Tag[ view_filter ] --START--
+[ 2013-04-22T11:57:18+08:00 ] /attendance/login.php | INFO: Run ContentReplace Behavior [ RunTime:0.000697s ]
+[ 2013-04-22T11:57:18+08:00 ] /attendance/login.php | INFO: Run TokenBuild Behavior [ RunTime:0.000716s ]
+[ 2013-04-22T11:57:18+08:00 ] /attendance/login.php | INFO: Run WriteHtmlCache Behavior [ RunTime:0.000521s ]
+[ 2013-04-22T11:57:18+08:00 ] /attendance/login.php | INFO: Run ShowRuntime Behavior [ RunTime:0.000708s ]
+[ 2013-04-22T11:57:18+08:00 ] /attendance/login.php | INFO: Tag[ view_filter ] --END-- [ RunTime:0.002766s ]
+[ 2013-04-22T11:57:18+08:00 ] /attendance/login.php | INFO: Tag[ view_end ] --START--
+[ 2013-04-22T11:57:18+08:00 ] /attendance/login.php | INFO: Run ShowPageTrace Behavior [ RunTime:0.000706s ]
+[ 2013-04-22T11:57:18+08:00 ] /attendance/login.php | INFO: Tag[ view_end ] --END-- [ RunTime:0.000747s ]
+[ 2013-04-22T11:58:21+08:00 ] /attendance/login.php | INFO: Tag[ app_begin ] --START--
+[ 2013-04-22T11:58:21+08:00 ] /attendance/login.php | INFO: Run ReadHtmlCache Behavior [ RunTime:0.000460s ]
+[ 2013-04-22T11:58:21+08:00 ] /attendance/login.php | INFO: Tag[ app_begin ] --END-- [ RunTime:0.000532s ]
+[ 2013-04-22T11:58:21+08:00 ] /attendance/login.php | INFO: Tag[ view_template ] --START--
+[ 2013-04-22T11:58:21+08:00 ] /attendance/login.php | INFO: Run LocationTemplate Behavior [ RunTime:0.001020s ]
+[ 2013-04-22T11:58:21+08:00 ] /attendance/login.php | INFO: Tag[ view_template ] --END-- [ RunTime:0.001068s ]
+[ 2013-04-22T11:58:21+08:00 ] /attendance/login.php | INFO: Tag[ view_parse ] --START--
+[ 2013-04-22T11:58:21+08:00 ] /attendance/login.php | INFO: Run ParseTemplate Behavior [ RunTime:0.009020s ]
+[ 2013-04-22T11:58:21+08:00 ] /attendance/login.php | INFO: Tag[ view_parse ] --END-- [ RunTime:0.009080s ]
+[ 2013-04-22T11:58:21+08:00 ] /attendance/login.php | INFO: Tag[ view_filter ] --START--
+[ 2013-04-22T11:58:21+08:00 ] /attendance/login.php | INFO: Run ContentReplace Behavior [ RunTime:0.000619s ]
+[ 2013-04-22T11:58:21+08:00 ] /attendance/login.php | INFO: Run TokenBuild Behavior [ RunTime:0.000671s ]
+[ 2013-04-22T11:58:21+08:00 ] /attendance/login.php | INFO: Run WriteHtmlCache Behavior [ RunTime:0.000508s ]
+[ 2013-04-22T11:58:21+08:00 ] /attendance/login.php | INFO: Run ShowRuntime Behavior [ RunTime:0.000725s ]
+[ 2013-04-22T11:58:21+08:00 ] /attendance/login.php | INFO: Tag[ view_filter ] --END-- [ RunTime:0.002638s ]
+[ 2013-04-22T11:58:21+08:00 ] /attendance/login.php | INFO: Tag[ view_end ] --START--
+[ 2013-04-22T11:58:21+08:00 ] /attendance/login.php | INFO: Run ShowPageTrace Behavior [ RunTime:0.000705s ]
+[ 2013-04-22T11:58:21+08:00 ] /attendance/login.php | INFO: Tag[ view_end ] --END-- [ RunTime:0.000745s ]

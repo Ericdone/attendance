@@ -541,6 +541,22 @@ Ext.define('MyDesktop.CheckChart', {
     	}
     },
 
+    statusChange: function(status) {
+    	if(status == 0) {
+    		return '<span style="color:red;">旷课</span>';
+    	} else if(status == 1)  {
+    		return '<span style="color:#9400D3;">迟到</span>';
+    	} else if(status == 2)  {
+    		return '<span style="color:#FF6699;">早退</span>';
+    	} else if(status == 3)  {
+    		return '<span style="color:#FF3399;">病假</span>';
+    	} else if(status == 4)  {
+    		return '<span style="color:#FF0099;">事假</span>';
+    	} else if(status == 5)  {
+    		return '<span style="color:#FF00CC;">公假</span>';
+    	}
+    },
+
     createWindow : function(){
         var desktop = this.app.getDesktop();
         var win = desktop.getWindow('checkchart');
@@ -618,7 +634,12 @@ Ext.define('MyDesktop.CheckChart', {
 		        data.push({
 		            date: Ext.Date.add(date, Ext.Date.DAY, i++),
 		            中文系: min(100, max(last? last.中文系 + (random() - 0.5) * 20 : random() * 100, 0)),
-		            计算机科学系: min(100, max(last? last.计算机科学系 + (random() - 0.5) * 10 : random() * 100, 0)),
+		            计算机科学系: min(100, max(last? last.计算机科学系 + (random() - 0.5) * 20 : random() * 100, 0)),
+		            电子科学系: min(100, max(last? last.电子科学系 + (random() - 0.5) * 20 : random() * 100, 0)),
+		            音乐系: min(100, max(last? last.音乐系 + (random() - 0.5) * 15 : random() * 100, 0)),
+		            体育系: min(100, max(last? last.体育系 + (random() - 0.5) * 20 : random() * 100, 0)),
+		            外语系: min(100, max(last? last.外语系 + (random() - 0.5) * 20 : random() * 100, 0)),
+		            政法系: min(100, max(last? last.政法系 + (random() - 0.5) * 20 : random() * 100, 0)),
 		            经济管理系: min(100, max(last? last.经济管理系 + (random() - 0.5) * 20 : random() * 100, 0))
 		        });
 		        last = data[data.length -1];
@@ -645,7 +666,7 @@ Ext.define('MyDesktop.CheckChart', {
 		}
 		
 		var trendStore = Ext.create('Ext.data.JsonStore', {
-		    fields: ['date', '中文系', '计算机科学系', '经济管理系'],
+		    fields: ['date', '中文系', '计算机科学系', '电子科学系', '音乐系', '体育系', '外语系', '政法系', '经济管理系'],
 		    data: generateData()
 		});
 		
@@ -710,7 +731,7 @@ Ext.define('MyDesktop.CheckChart', {
 	                minimum: 0,
 	                maximum: 100,
 	                position: 'left',
-	                fields: ['计算机科学系', '中文系', '经济管理系'],
+	                fields: ['计算机科学系', '电子科学系', '音乐系', '体育系', '外语系', '政法系', '中文系', '经济管理系'],
 	                title: '缺勤人数/(人)',
 	                grid: {
 	                    odd: {
@@ -738,10 +759,10 @@ Ext.define('MyDesktop.CheckChart', {
 	                smooth: false,
 	                axis: ['left', 'bottom'],
 	                xField: 'date',
-	                yField: '中文系',
+	                yField: '计算机科学系',
 	                label: {
 	                    display: 'none',
-	                    field: '中文系',
+	                    field: '计算机科学系',
 	                    renderer: function(v) { return v >> 0; },
 	                    'text-anchor': 'middle'
 	                },
@@ -754,10 +775,90 @@ Ext.define('MyDesktop.CheckChart', {
 	                axis: ['left', 'bottom'],
 	                smooth: false,
 	                xField: 'date',
-	                yField: '计算机科学系',
+	                yField: '电子科学系',
 	                label: {
 	                    display: 'none',
-	                    field: '中文系',
+	                    field: '电子科学系',
+	                    renderer: function(v) { return v >> 0; },
+	                    'text-anchor': 'middle'
+	                },
+	                markerConfig: {
+	                    radius: 5,
+	                    size: 5
+	                }
+	            },{
+	                type: 'line',
+	                axis: ['left', 'bottom'],
+	                smooth: false,
+	                xField: 'date',
+	                yField: '体育系',
+	                label: {
+	                    display: 'none',
+	                    field: '体育系',
+	                    renderer: function(v) { return v >> 0; },
+	                    'text-anchor': 'middle'
+	                },
+	                markerConfig: {
+	                    radius: 5,
+	                    size: 5
+	                }
+	            },{
+	                type: 'line',
+	                axis: ['left', 'bottom'],
+	                smooth: false,
+	                xField: 'date',
+	                yField: '音乐系',
+	                label: {
+	                    display: 'none',
+	                    field: '音乐系',
+	                    renderer: function(v) { return v >> 0; },
+	                    'text-anchor': 'middle'
+	                },
+	                markerConfig: {
+	                    radius: 5,
+	                    size: 5
+	                }
+	            },{
+	                type: 'line',
+	                axis: ['left', 'bottom'],
+	                smooth: false,
+	                xField: 'date',
+	                yField: '外语系',
+	                label: {
+	                    display: 'none',
+	                    field: '外语系',
+	                    renderer: function(v) { return v >> 0; },
+	                    'text-anchor': 'middle'
+	                },
+	                markerConfig: {
+	                    radius: 5,
+	                    size: 5
+	                }
+	            },{
+	                type: 'line',
+	                axis: ['left', 'bottom'],
+	                smooth: false,
+	                xField: 'date',
+	                yField: '政法系',
+	                label: {
+	                    display: 'none',
+	                    field: '政法系',
+	                    renderer: function(v) { return v >> 0; },
+	                    'text-anchor': 'middle'
+	                },
+	                markerConfig: {
+	                    radius: 5,
+	                    size: 5
+	                }
+	            },{
+	                type: 'line',
+	                axis: ['left', 'bottom'],
+	                smooth: false,
+	                xField: 'date',
+	                yField: '政法系',
+	                label: {
+	                    display: 'none',
+	                    field: '政法系',
 	                    renderer: function(v) { return v >> 0; },
 	                    'text-anchor': 'middle'
 	                },
@@ -773,7 +874,7 @@ Ext.define('MyDesktop.CheckChart', {
 	                yField: '经济管理系',
 	                label: {
 	                    display: 'none',
-	                    field: '中文系',
+	                    field: '经济管理系',
 	                    renderer: function(v) { return v >> 0; },
 	                    'text-anchor': 'middle'
 	                },
@@ -1112,6 +1213,7 @@ Ext.define('MyDesktop.CheckChart', {
 	        columns: [{
 	        	text: '缺勤类型',
 	        	dataIndex: 'absenceName',
+		    	renderer: this.statusChange
 	        }, {
 	        	text: '人数',
 	        	dataIndex: 'absenceCount'
@@ -1153,7 +1255,7 @@ Ext.define('MyDesktop.CheckChart', {
                     renderer: function(klass, item) {
                         var storeItem = item.storeItem, data = classPieModel, i, l, html;
                         
-                        this.setTitle(storeItem.get('checkweek') + "的详细信息");							// get的是xField的名字
+                        this.setTitle('第' + storeItem.get('checkweek') + "周的详细信息");							// get的是xField的名字
                         classPieStore.load({params:{classQueryObj: classQueryObj, index: klass.index}});	// klass.index是选择的节点
                         gridStore.load({params:{classQueryObj: classQueryObj, index: klass.index}});
                         grid.setSize(480, 130);
@@ -1325,140 +1427,13 @@ Ext.define('MyDesktop.CheckChart', {
 		    	defaultType: 'toolbar',
 		    	items: [{
 		    		border: 0
-//		    		padding: 5,
-//		    		border: 0,
-//		    		items:[{
-//		    			// 学年列表
-//			    		id: 'subject1',
-//		                xtype: 'combobox',
-//		                labelWidth: 40,
-//		                fieldLabel: '学 年',
-//		                store: subjectYearStore,
-//		                width: 160,
-//		                queryMode: 'remote',
-//		                displayField: 'year',
-//		                valueField: 'year',
-//		                emptyText: '选择所查询学年',
-//		                triggerAction: 'all',
-//		                listeners: {
-//		                	select: function(c, r, i) {
-//		                		// 多级联动选择了学年后触发的事件
-//		                		subjectQueryObj = splitString(subjectQueryObj, ',', 0);
-//		                		subjectQueryObj = subjectQueryObj + r[0].data.year;
-//		                		Ext.getCmp('subjectSearch').disable();
-//		                		showSubjectNext(2, 1, 5);
-//		                		
-//		                	}
-//		                }
-//		            }, {
-//		            	// 学期列表
-//		            	id: 'subject2',
-//		                xtype: 'combobox',
-//		                labelWidth: 40,
-//		                fieldLabel: '学 期',
-//		                store: subjectTermStore,
-//		                width: 160,
-//		                queryMode: 'remote',
-//		                displayField: 'term',
-//		                valueField: 'term',
-//		                emptyText: '选择所查询学期',
-//		                triggerAction: 'all',
-//		                listeners: {
-//		                	select: function(c, r, i) {
-//		                		// 多级联动选择了学期后触发的事件
-//		                		subjectQueryObj = splitString(subjectQueryObj, ',', 2);
-//		                		subjectQueryObj = subjectQueryObj + ',' + r[0].data.term;
-//		                		Ext.getCmp('subjectSearch').disable();
-//		                		showSubjectNext(3, 2, 5);
-//		                	}
-//		                }
-//		            }, {
-//		            	// 年级列表
-//		            	id: 'subject3',
-//		                xtype: 'combobox',
-//		                labelWidth: 40,
-//		                fieldLabel: '年 级',
-//		                store: subjectGradeStore,
-//		                width: 160,
-//		                queryMode: 'remote',
-//		                displayField: 'grade',
-//		                valueField: 'grade',
-//		                emptyText: '选择所查询年级',
-//		                triggerAction: 'all',
-//		                listeners: {
-//		                	select: function(c, r, i) {
-//		                		// 多级联动选择了年级后触发的事件
-//		                		subjectQueryObj = splitString(subjectQueryObj, ',', 2);
-//		                		subjectQueryObj = subjectQueryObj + ',' + r[0].data.grade;
-//		                		Ext.getCmp('subjectSearch').disable();
-//		                		showSubjectNext(4, 3, 5);
-//		                	}
-//		                }
-//		            }, {
-//		            	// 系别列表
-//		            	id: 'subject4',
-//		                xtype: 'combobox',
-//		                labelWidth: 40,
-//		                fieldLabel: '系 别',
-//		                store: subjectFamilyStore,
-//		                width: 130,
-//		                queryMode: 'remote',
-//		                displayField: 'familyid',
-//		                valueField: 'familyid',
-//		                emptyText: '选择所在系',
-//		                triggerAction: 'all',
-//		                listeners: {
-//		                	select: function(c, r, i) {
-//		                		// 多级联动选择了系别后触发的事件
-//		                		subjectQueryObj = splitString(subjectQueryObj, ',', 3);
-//		                		subjectQueryObj = subjectQueryObj + ',' + r[0].data.familyid;
-//		                		Ext.getCmp('subjectSearch').disable();
-//		                		showSubjectNext(5, 4, 5);
-//		                	}
-//		                }
-//		            }, {
-//		            	// 班级列表
-//		            	id: 'subject5',
-//		                xtype: 'combobox',
-//		                labelWidth: 40,
-//		                fieldLabel: '班 级',
-//		                store: subjectClassStore,
-//		                width: 140,
-//		                queryMode: 'remote',
-//		                displayField: 'name',
-//		                valueField: 'id',
-//		                emptyText: '选择所在班级',
-//		                triggerAction: 'all',
-//		                listeners: {
-//		                	select: function(c, r, i) {
-//		                		// 多级联动选择了班级后触发的事件
-//		                		subjectQueryObj = splitString(subjectQueryObj, ',', 4);
-//		                		subjectQueryObj = subjectQueryObj + ',' + r[0].data.id;
-//		                		Ext.getCmp('subjectSearch').enable();
-//		                		showSubjectNext(6, 5, 5);
-//		                	}
-//		                }
-//		        	}, '-', {
-//		            	// 查询按钮
-//			    		xtype: 'button',
-//			    		id: 'subjectSearch',
-//			    		text: '查询',
-//			    		iconCls: 'search',
-//			    		disabled: true,
-//			    		listeners: {
-//			    			click: function() {
-//			    				classAttendanceStore.load({
-//			    					params:{ subjectQueryObj: subjectQueryObj}
-//			    				});
-//			    			}
-//			    		}
-//		    		}]
 		    	}, {
 		    		id: 'subjectOperationBar',
 		    		border: 0,
 		    		padding: 0,
 		    		items: [{
 		    			text: '保存',
+		    			iconCls: 'save',
 		    			handler: function() {
 		    				Ext.MessageBox.confirm('保存确认', '您确定要将此图表作为图片下载到本地吗?', function(choice){
 			                    if(choice == 'yes'){
@@ -1471,8 +1446,9 @@ Ext.define('MyDesktop.CheckChart', {
 			            }
 		    		}, '-', {
 		    			text: '打印',
+		    			iconCls: 'print',
 		    			handler: function() {
-		    				
+		    				window.print();
 		    			}
 		    		}, '-', {
 		    			text: '刷新',

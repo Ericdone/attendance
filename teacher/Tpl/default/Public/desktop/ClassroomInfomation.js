@@ -435,7 +435,7 @@ Ext.define('MyDesktop.ClassroomInfomation', {
     		autoLoad: true
     	});
 
-		classmatePanel = Ext.create('Ext.grid.Panel', {
+		classmatePanel = Ext.create('Ext.grid.GridPanel', {
 		    store: Ext.data.StoreManager.lookup('classmateStore'),
 		    loadMask: true,
 		    id: 'classmatePanel',
@@ -556,6 +556,17 @@ Ext.define('MyDesktop.ClassroomInfomation', {
 		                iconCls: 'view',
 		                tooltip:'查看已选定学生的详细信息',
 		                handler: this.onViewDetail,
+		                scope: this
+		            }, '-', {
+		                text:'打印',
+		                iconCls: 'print',
+		                tooltip:'打印当前表格',
+		                handler: function() {
+		                	// var vExportContent = classmatePanel.getExcelXml();
+		                	// document.location = 'data:application/vnd.ms-excel;base64,' + Base64.encode(vExportContent);
+		                	// Ext.Msg.alert('提示', '请连接打印机！')
+		                	window.print();
+		                },
 		                scope: this
 		            }, '-', {
 		                text:'刷新',

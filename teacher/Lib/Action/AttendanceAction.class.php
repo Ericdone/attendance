@@ -93,4 +93,55 @@ class AttendanceAction extends CommonAction {
         $this->assign('photoQueryObj', $photoQueryObj);
         $this->display();
     }
+
+
+    public function getFamily() {
+        // 获取学年、学期、年级信息
+        $query = $_GET['query'];
+        $queryArr = split(',', $query);
+
+        $classModel = M('Class');
+        // $info = $classModel->field('`familyid`')->group('`familyid`')->where("`grade`=$queryArr[3]")->select();
+        $info = $classModel->query("SELECT `class`.`familyid`, `family`.`name` AS `familyname`, `family`.`id` AS `familyid`, `class`.`grade` FROM `class` LEFT JOIN `family` ON `family`.`id`=`class`.`familyid` WHERE `class`.`grade`=$queryArr[3] GROUP BY `class`.`familyid`");
+        if($info) {
+            echo '{"success":true,data:' . json_encode($info) . '}';
+        }
+    }
+
+    /*
+     * 获取级联查询中的班级信息
+     *
+     * */
+    public function getClass() {
+        // 获取学年、学期、年级、系别信息
+        $query = $_GET['query'];
+        $queryArr = split(',', $query);
+
+        $classModel = M('Class');
+        // $info = $classModel->field('`name`, `id`')->group('name')->where('`familyid`=' . $queryArr[4] . ' and `grade`=' . $queryArr[3])->select();
+        $info = $classModel->query("SELECT `class`.`id` AS `id`, `class`.`name` AS `classname`, `family`.`id` AS `familyid`, `class`.`grade` FROM `class` LEFT JOIN `family` ON `family`.`id`=`class`.`familyid` WHERE `class`.`familyid`=$queryArr[4] GROUP BY `class`.`name`");
+        if($info) {
+            echo '{"success":true,data:' . json_encode($info) . '}';
+        }
+    }
+
+
+    /*
+     * 获取级联查询中的科目信息
+     *
+     * */
+    public function getSubject() {
+        // 获取学年、学期、年级、系别、班级信息
+        $query = $_GET['query'];
+        $queryArr = split(',', $query);
+
+        $scheduleModel = M('Schedule');
+        // $info = $scheduleModel->field('`subjectid`')->group('`subjectid`')->where('`year`=' . $queryArr[1] . ' and `term`=' . $queryArr[2] . ' and `classid`=' . $queryArr[5])->select();
+        // $info = $scheduleModel->query("SELECT `schedule`.`subjectid`, `subject`.`name` AS `subjectname` FROM `schedule` LEFT JOIN `subject` ON `subject`.`id`=`schedule`.`subjectid` WHERE `schedule`.`year`=$queryArr[1] and `schedule`.`term`=$queryArr[2] and `schedule`.`classid`=$queryArr[5] group by `schedule`.`subjectid`");
+        $info = $scheduleModel->query("SELECT `schedule`.`subjectid`, `subject`.`name` AS `subjectname` FROM `schedule` LEFT JOIN `subject` ON `subject`.`id`=`schedule`.`subjectid` WHERE `schedule`.`year`=$queryArr[1] and `schedule`.`term`=$queryArr[2] and `schedule`.`classid`=$queryArr[5] group by `schedule`.`subjectid`");
+        // var_dump($info);
+        if($info) {
+            echo '{"success":true,data:' . json_encode($info) . '}';
+        }
+    }
 }

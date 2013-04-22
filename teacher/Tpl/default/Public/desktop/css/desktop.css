@@ -356,6 +356,10 @@
     background-image:url( ../../shared/icons/fam/user.gif ) !important;
 }
 
+.print {
+    background-image:url( ../../shared/icons/fam/print.png ) !important;
+}
+
 .user-add {
     background-image:url(../../shared/icons/fam/user_add.gif) !important;
 }
@@ -394,4 +398,8 @@
 
 .search {
     background-image:url(../../shared/icons/fam/search.gif) !important;
+}
+
+.save {
+    background-image:url(../../shared/icons/fam/save.png) !important;
 }

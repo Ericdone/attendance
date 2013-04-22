@@ -165,4 +165,111 @@ class NoticeAction extends CommonAction {
             echo '{success:false}';
         }
     }
+
+
+    /*
+     * 发送邮件
+     *
+     * */
+    public function sendmail() {
+        $a = str_replace('\\', '', $_GET['data']);
+        $arr = json_decode($a, true);
+        if(isset($arr['classNotice-checkbox'])) {
+            // 班级通知
+            // 获取传递的参数
+            $grade = $arr['grade'];                                           // 班级通知公告年级
+            $familyid = $arr['familyid'];                                     // 班级通知公告系别ID
+            $classid = $arr['classid'];                                       // 班级通知公告班级ID
+            $noticeClassTitle = $arr['noticeClassTitle'];                     // 班级通知公告标题
+            $noticeClassContent = $arr['noticeClassContent'];                 // 班级通知公告内容
+
+            // 查询所选择的班级的学生ID
+            $studentModel = M('Student');
+            $studentInfo = $studentModel->query("SELECT `student`.`number` AS `id`, `student`.`email` AS `email` FROM `student` LEFT JOIN `class` ON `class`.`id`=`student`.`classid` WHERE `class`.`id`=$classid");
+
+            // 添加通知公告到每个查询出来的学生
+            $noticeModel = M('Notice');
+            $sqlStatus = true;
+            $time = time();
+            $teacherid = session('teacher');
+            for($i=0; $i<count($studentInfo); $i++) {
+                $studentId = $studentInfo[$i]['id'];
+                $studentemail = $studentInfo[$i]['email'];
+                $info = $noticeModel->query("INSERT INTO `notice` (`name`, `content`, `teacherid`, `studentid`, `time`, `status`, `isAll`) VALUES ('$noticeClassTitle', '$noticeClassContent', '$teacherid', '$studentId', '$time', '0', '0')");
+                if(!$info) {
+                    $sqlStatus = false;
+                }
+                //POST数据
+                $url = "http://attendance.sinaapp.com/mail/saemail.php";
+                $curlPost = array(
+                    'toemail'=>$studentemail,
+                    'title'=>$noticeClassTitle,
+                    'content'=>$noticeClassContent
+                );
+                //初始化curl对象
+                $curl = curl_init();
+                //设置
+                curl_setopt($curl, CURLOPT_URL, $url);
+                curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($curl, CURLOPT_POST, 1);    //设施post方式提交数据
+                curl_setopt($curl, CURLOPT_POSTFIELDS, $curlPost);    //设置POST的数据
+                // 执行会话
+                $abc = curl_exec($curl);
+                // var_dump($abc);
+                // 关闭会话
+                curl_close($curl);
+            }
+            if(!$sqlStatus) {
+                echo '{success:true}';
+            } else {
+                echo '{success:false}'; 
+            }
+
+        } else {
+            // 个人通知
+            // 获取传递的参数
+            $a = str_replace('\\', '', $_GET['data']);
+            $arr = json_decode($a, true);
+
+            $noticeStudentNumber = $arr['noticeStudentNumber'];               // 私信通知公告学生学号
+            $noticeStudentTitle = $arr['noticeStudentTitle'];                 // 私信通知公告标题
+            $noticeStudentContent = $arr['noticeStudentContent'];             // 私信通知公告内容
+
+            // 添加通知公告到指定学号的学生
+            $noticeModel = M('Notice');
+            $time = time();
+            $teacherid = session('teacher');
+            $info = $noticeModel->query("INSERT INTO `notice` (`name`, `content`, `teacherid`, `studentid`, `time`, `status`, `isAll`) VALUES ('$noticeStudentTitle', '$noticeStudentContent', '$teacherid', '$noticeStudentNumber', '$time', '0', '1')");
+
+            // 查询所选择的班级的学生ID
+            $studentModel = M('Student');
+            $studentInfo = $studentModel->query("SELECT `student`.`number` AS `id`, `student`.`email` AS `email` FROM `student` WHERE `student`.`number`='$noticeStudentNumber'");
+
+            $studentemail = $studentInfo[0]['email'];
+
+            //POST数据
+            $url = "http://attendance.sinaapp.com/mail/saemail.php";
+            $curlPost = array(
+                'toemail'=>$studentemail,
+                'title'=>$noticeStudentTitle,
+                'content'=>$noticeStudentContent
+            );
+            //初始化curl对象
+            $curl = curl_init();
+            //设置
+            curl_setopt($curl, CURLOPT_URL, $url);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($curl, CURLOPT_POST, 1);    //设施post方式提交数据
+            curl_setopt($curl, CURLOPT_POSTFIELDS, $curlPost);    //设置POST的数据
+            // 执行会话
+            $abc = curl_exec($curl);
+            // 关闭会话
+            curl_close($curl);
+            if(!$info) {
+                echo '{success:true}';
+            } else {
+                echo '{success:false}';
+            }
+        }
+    }
 }

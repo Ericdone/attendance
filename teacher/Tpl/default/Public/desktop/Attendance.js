@@ -88,13 +88,16 @@ Ext.define('attendanceFamilyModel', {
 	fields: [{
 		name: 'familyid',
 		type: 'int'
+	}, {
+		name: 'familyname',
+		type: 'string'
 	}]
 });
 var attendanceFamilyStore = Ext.create('Ext.data.Store', {
 	model: 'attendanceFamilyModel',
 	proxy: {
 		type: 'ajax',
-		url: AppUrl + '/Lib/getSeatFamily',
+		url: AppUrl + '/Attendance/getFamily',
 		reader: {
 			type: 'json',
 			root: 'data'
@@ -109,7 +112,7 @@ Ext.define('attendanceClassModel', {
 		name: 'id',
 		type: 'int'
 	}, {
-		name: 'name',
+		name: 'classname',
 		type: 'string'
 	}]
 });
@@ -117,7 +120,7 @@ var attendanceClassStore = Ext.create('Ext.data.Store', {
 	model: 'attendanceClassModel',
 	proxy: {
 		type: 'ajax',
-		url: AppUrl + '/Lib/getSeatClass',
+		url: AppUrl + '/Attendance/getClass',
 		reader: {
 			type: 'json',
 			root: 'data'
@@ -131,13 +134,16 @@ Ext.define('subjectModel', {
 	fields: [{
 		name: 'subjectid',
 		type: 'int'
+	}, {
+		name: 'subjectname',
+		type: 'string'
 	}]
 });
 var subjectStore = Ext.create('Ext.data.Store', {
 	model: 'subjectModel',
 	proxy: {
 		type: 'ajax',
-		url: AppUrl + '/Lib/getsubject',
+		url: AppUrl + '/Attendance/getsubject',
 		reader: {
 			type: 'json',
 			root: 'data'
@@ -706,12 +712,47 @@ Ext.define('MyDesktop.Attendance', {
 		        	}]
 		    	}]
     		}],
-    		html: 'dddddddddddddd'
+    		html: '无法连接到拍照服务器！'
     		// html: '<iframe scrolling="auto" frameborder="0" width="100%" height="100%" src=' + AppUrl + '/Attendance/photoAgain/photoQueryObj/' + photoQueryObj + '></iframe>'
     	});
     	return photoPanel;
     },
-    
+
+    sexChange: function(sex) {
+    	if(sex == 0) {
+    		return '<span style="color:green;">男</span>';
+    	} else {
+    		return '<span style="color:red;">女</span>';
+    	}
+    },
+
+    checkagainChange: function(status) {
+    	doapply = function() {
+	    	Ext.Msg.alert('提示', '申请成功');
+	    };
+    	if(status == 0) {
+    		return '<img alt="" src="/attendance/teacher/Tpl/default/Public/shared/icons/fam/table_refresh.png" class="x-action-col-icon x-action-col-0" data-qtip="申请" onclick=doapply()>';
+    	} else {
+    		return '<span style="color:red;">已申请</span>';
+    	}
+    },
+ 
+    statusChange: function(status) {
+    	if(status == 0) {
+    		return '<span style="color:red;">旷课</span>';
+    	} else if(status == 1)  {
+    		return '<span style="color:#9400D3;">迟到</span>';
+    	} else if(status == 2)  {
+    		return '<span style="color:#FF6699;">早退</span>';
+    	} else if(status == 3)  {
+    		return '<span style="color:#FF3399;">病假</span>';
+    	} else if(status == 4)  {
+    		return '<span style="color:#FF0099;">事假</span>';
+    	} else if(status == 5)  {
+    		return '<span style="color:#FF00CC;">公假</span>';
+    	}
+    },
+
     // 创建个人缺勤搜索面板
     createPersonAttendance: function() {
     	// 创建个人缺勤Model
@@ -798,10 +839,12 @@ Ext.define('MyDesktop.Attendance', {
 		    	dataIndex: 'time'
 		    }, {
 		    	text: '缺勤情况',
-		    	dataIndex: 'status'
+		    	dataIndex: 'status',
+		    	renderer: this.statusChange
 		    }, {
 		    	text: '可申请重查',
-		    	dataIndex: 'checkagain'
+		    	dataIndex: 'checkagain',
+		    	renderer: this.checkagainChange
 		    }],
 		    header: false,
 		    
@@ -1033,7 +1076,8 @@ Ext.define('MyDesktop.Attendance', {
 		    	dataIndex: 'name'
 		    }, {
 		    	text: '性别',
-		    	dataIndex: 'sex'
+		    	dataIndex: 'sex',
+		    	renderer: this.sexChange
 		    }, {
 		    	text: '班级id',
 		    	dataIndex: 'classname'
@@ -1052,10 +1096,12 @@ Ext.define('MyDesktop.Attendance', {
 		    	dataIndex: 'guardername'
 		    }, {
 		    	text: '考勤情况',
-		    	dataIndex: 'status'
+		    	dataIndex: 'status',
+		    	renderer: this.statusChange
 		    }, {
 		    	text: '可申请重查',
-		    	dataIndex: 'checkagain'
+		    	dataIndex: 'checkagain',
+		    	renderer: this.checkagainChange
 		    }],
 		    header: false,
 		    
@@ -1151,7 +1197,7 @@ Ext.define('MyDesktop.Attendance', {
 		                store: attendanceFamilyStore,
 		                width: 130,
 		                queryMode: 'remote',
-		                displayField: 'familyid',
+		                displayField: 'familyname',
 		                valueField: 'familyid',
 		                emptyText: '选择所在系',
 		                triggerAction: 'all',
@@ -1173,7 +1219,7 @@ Ext.define('MyDesktop.Attendance', {
 		                store: attendanceClassStore,
 		                width: 140,
 		                queryMode: 'remote',
-		                displayField: 'name',
+		                displayField: 'classname',
 		                valueField: 'id',
 		                emptyText: '选择所在班级',
 		                triggerAction: 'all',
@@ -1199,7 +1245,7 @@ Ext.define('MyDesktop.Attendance', {
 		                store: subjectStore,
 		                width: 160,
 		                queryMode: 'remote',
-		                displayField: 'subjectid',
+		                displayField: 'subjectname',
 		                valueField: 'subjectid',
 		                emptyText: '选择所查询科目',
 		                triggerAction: 'all',

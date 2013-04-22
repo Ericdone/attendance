@@ -40,7 +40,7 @@ class AttendanceAction extends CommonAction {
     public function getPersonAttendance() {
         $start = $_GET['start'];                                        // 开始时间参数
         $end = $_GET['end'];                                            // 结束时间参数
-        $query = $_GET['query'];                                        // 查询关键字参数
+        $query = session('student');                                        // 查询关键字参数
 
         if(!empty($query)) {                                            // 传递了关键字参数
             if(!empty($start) && !empty($end)) {                        // 传递了时间参数

@@ -1,0 +1,3 @@
+LAMP:http://en.wikipedia.org/wiki/LAMP_(software_bundle)
+Git:http://git-scm.com/about/branching-and-merging
+Sina Weibo:http://open.weibo.com/wiki/Oauth/en

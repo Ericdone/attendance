@@ -55,7 +55,7 @@ Ext.define('MyDesktop.App', {
 //            new MyDesktop.GridWindow(),
 //            new MyDesktop.TabWindow(),
 //            new MyDesktop.AccordionWindow(),
-//            new MyDesktop.Notepad(),
+           new MyDesktop.Notepad(),
 //            new MyDesktop.BogusMenuModule(),
             // 测试添加的组件
 //            new MyDesktop.Eric(),
@@ -89,7 +89,6 @@ Ext.define('MyDesktop.App', {
                 data: [
 //                    { name: 'Grid Window', iconCls: 'grid-shortcut', module: 'grid-win' },
 //                    { name: 'Accordion Window', iconCls: 'accordion-shortcut', module: 'acc-win' },
-//                    { name: 'Notepad', iconCls: 'notepad-shortcut', module: 'notepad' },
                     // 测试添加的组件
                     { name: '个人信息', iconCls: 'person-shortcut', module: 'teacher-infomation'},
                     { name: '班级信息', iconCls: 'class-shortcut', module: 'classroom-informaiton'},
@@ -99,6 +98,7 @@ Ext.define('MyDesktop.App', {
                     { name: '爱监督', iconCls: 'sinaweibo-shortcut', module: 'sinaweibo'},
                     // { name: '缺勤图表', iconCls: 'chart-shortcut', module: 'checkchart'},
                     { name: '通知公告', iconCls: 'notice-shortcut', module: 'notice'},
+                    // { name: '记事本', iconCls: 'notepad-shortcut', module: 'notepad' },
                     { name: '系统帮助', iconCls: 'systemhelp-shortcut', module: 'help'}
                     
 //                    { name: 'System Status', iconCls: 'cpu-shortcut', module: 'systemstatus'}

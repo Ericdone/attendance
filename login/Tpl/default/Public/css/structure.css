@@ -17,7 +17,7 @@ body{
 {
     background:#fefefe;
     border: 1px solid #C3D4DB;
-	border-top:1px;
+    border-top:1px;
     -webkit-border-radius:5px;
     -moz-border-radius:5px;
     border-radius:5px;
@@ -26,7 +26,7 @@ body{
     box-shadow:rgba(0,0,0,0.15) 0 0 1px;
     color:#444;
     font:normal 12px/14px Arial, Helvetica, Sans-serif;
-    margin:0 auto 30px;
+    //margin:0 auto 30px;
 	overflow:hidden;
 }
 .box.login
@@ -35,8 +35,8 @@ body{
     width:332px;
 	position:absolute;
 	left:50%;
-	top:50%;
-	margin:-130px 0 0 -166px;
+	//top:50%;
+	margin:-100px 0 0 -200px;
 }
 .boxBody
 {
@@ -159,9 +159,10 @@ body{
     text-shadow:rgba(0,0,0,0.3) 0 -1px 0px; 
 }
 footer#main{
-	position:fixed;
-	left:0;
-	bottom:10px;
+	//position:fixed;
+	//left:0;
+	//bottom:10px;
+        //top:480px;
 	text-align:center;
 	font:normal 11px/16px Arial, Helvetica, sans-serif;
 	width:100%;
