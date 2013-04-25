@@ -97,13 +97,13 @@ Ext.define('MyDesktop.App', {
                     { name: '缺勤查询', iconCls: 'attendance-shortcut', module: 'attendance'},
                     { name: '缺勤图表', iconCls: 'chart-shortcut', module: 'checkchart'},
                     { name: '通知公告', iconCls: 'notice-shortcut', module: 'notice'},
+                    { name: '系统监测', iconCls: 'cpu-shortcut', module: 'systemstatus'},
                     { name: '系统帮助', iconCls: 'systemhelp-shortcut', module: 'help'}
                     
-//                    { name: 'System Status', iconCls: 'cpu-shortcut', module: 'systemstatus'}
                 ]
             }),
 
-            wallpaper: WallPapers + 'Generation.jpg',
+            wallpaper: WallPapers + 'desk.jpg',
             wallpaperStretch: true
         });
     },

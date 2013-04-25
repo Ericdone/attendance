@@ -490,7 +490,7 @@ Ext.define('MyDesktop.ClassroomInfomation', {
 		                labelWidth: 40,
 		                fieldLabel: '年 级',
 		                store: gradeStore,
-		                queryMode: 'local',
+		                queryMode: 'remote',
 		                displayField: 'grade',
 		                valueField: 'grade',
 		                emptyText: '选择所查询年级',

@@ -116,6 +116,7 @@ Ext.define('MyDesktop.Settings', {
                         child('mac.jpg'),
                         child('Ubuntu.jpg'),
                         child('wood.jpg'),
+                        child('space.jpg'),
                         child('color.jpg')
                     ]
                 }

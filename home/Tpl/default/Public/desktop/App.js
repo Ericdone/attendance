@@ -105,7 +105,7 @@ Ext.define('MyDesktop.App', {
                 ]
             }),
 
-            wallpaper: WallPapers + 'generation.jpg',
+            wallpaper: WallPapers + 'desk.jpg',
             wallpaperStretch: true
         });
     },

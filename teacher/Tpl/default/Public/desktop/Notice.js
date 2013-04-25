@@ -486,7 +486,7 @@ Ext.define('MyDesktop.Notice', {
 	            formBind: true, //only enabled once the form is valid
 		        disabled: true,
 		        handler: function() {
-		            Ext.Msg.alert('出错了！', '无法找到短信发送服务器，请联系管理员配置！');
+		            Ext.Msg.alert('出错了！', '余额不足，请充值！');
 		        }
 		    }, {
 		        text: '发送站内信',
